@@ -1,0 +1,28 @@
+{
+  "name": "info.movies",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-changed": "^3.1.0",
+    "gulp-clean-css": "^3.7.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "krux-postscribe": "^1.3.2",
+    "lodash": "^4.17.4",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-modal-video": "^1.0.4",
+    "react-router-dom": "^4.1.2",
+    "react-scripts": "1.0.10",
+    "sass-loader": "^6.0.6",
+    "superagent": "^3.5.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

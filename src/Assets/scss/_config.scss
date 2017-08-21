@@ -1,0 +1,46 @@
+
+/*variables*/
+
+$black: #000000;
+$white:#ffffff;
+$lightGrey:#d3d3d3;
+$darkGrey:#A9A9A9;
+$red:#ff0000;
+
+
+/*FONTS*/ 
+@mixin translateY($e){
+    -webkit-transform: translateY($e);
+    -moz-transform: translateY($e);
+        transform: translateY($e);
+}
+
+@mixin transition($e){
+    -webkit-transition: $e;
+    -moz-transition: $e;
+    transition: $e;
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    color: $black;
+    font-weight: 400;
+    font-style: normal;
+}
+
+a{
+    text-decoration: none;
+    
+    @include transition(.1s ease-in-out);
+    cursor:pointer;
+
+    &:hover{
+        color:$red;
+        @include transition(.1s ease-in-out);
+    }
+}
+
+.container-fluid{
+    line-height: 24px;
+}
