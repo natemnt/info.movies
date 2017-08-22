@@ -39,7 +39,6 @@ nav, nav ul{
                 color:$white;
                 text-decoration: none;
             }
-
     }   
 }
 
@@ -57,6 +56,11 @@ footer{
         width:5%;
     }
 }
+
+.info_movies__details_desc{
+    font-size: 14px;
+}
+/*Movie article styling*/
 .info_movie__article{
     margin-top:20px;
     margin-left:20px;

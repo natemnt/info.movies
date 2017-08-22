@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Request from 'superagent';
 import Videolinks from '../formsComponent/videoLink';
+import _ from 'lodash';
 
 //movie component
 class Moviedetails extends Component {
@@ -46,7 +47,11 @@ class Moviedetails extends Component {
         var movieDetails = this.state.films;
         //console.log(this.state.films);
         var idKey = this.state.films.id;
-        //console.log(idKey);
+
+        var movieCompanies = _.map(movieDetails.production_companies,(movieCompanies) =>{
+            return <span key={movieCompanies.id}>{movieCompanies.name} </span>
+        });
+        console.log(movieDetails);
       }
      
 
@@ -61,16 +66,17 @@ class Moviedetails extends Component {
             <figure className="animate-box">
                 <img src={'http://image.tmdb.org/t/p/w185'+movieDetails.poster_path} alt="movie poster"/>
             </figure>
-
+        
                 <Videolinks movieId={idKey}/>
                 
-            <h2 className="fh5co-article-title animate-box">{movieDetails.original_title}</h2>
-        <p>
+            <h3 className="fh5co-article-title animate-box">{movieDetails.original_title}</h3>
+        <p className="info_movies__details_desc">
           Synopsis: {movieDetails.overview}
         </p>
-        <p>Release date: {movieDetails.release_date}</p>
-        <p>Duration: {movieDetails.runtime}minutes</p>
-        <p>Budget: ${movieDetails.budget}</p>
+        <p className="info_movies__details_desc">Release date: {movieDetails.release_date}</p>
+        <p className="info_movies__details_desc">Duration: {movieDetails.runtime}minutes</p>
+        <p className="info_movies__details_desc">Production Companies: {movieCompanies}</p>
+        <p className="info_movies__details_desc">Budget: ${movieDetails.budget}</p>
             </div>
         </div>
     </div>
