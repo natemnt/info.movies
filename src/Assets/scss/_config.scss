@@ -7,6 +7,13 @@ $lightGrey:#d3d3d3;
 $darkGrey:#A9A9A9;
 $red:#ff0000;
 
+/*Breakpoints*/
+$bp-maggie: 15em; /*240px*/
+$bp-lisa: 30em;/*480*/
+$bp-bart: 48em;/*768*/
+$bp-marge: 62em;/*992*/
+$bp-homer: 75em;/*1200*/
+
 
 /*FONTS*/ 
 @mixin translateY($e){
@@ -37,10 +44,21 @@ a{
 
     &:hover{
         color:$red;
+        text-decoration: none;
         @include transition(.1s ease-in-out);
     }
 }
 
 .container-fluid{
     line-height: 24px;
+    margin:5% 3%;
+
+    @media(min-width:$bp-bart){
+        margin:2%;
+    }
+
+    @media(min-width: $bp-homer){
+        margin:2em auto;
+        max-width: $bp-homer;
+    }
 }

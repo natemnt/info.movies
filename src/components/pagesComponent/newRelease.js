@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Request from 'superagent';
 import _ from 'lodash';
+import {Link} from 'react-router-dom';
 
 class Newrelease extends Component {
 
@@ -24,19 +25,29 @@ class Newrelease extends Component {
   render() {
 
     var movies = _.map(this.state.movies,(movies) => {
-      return <div key={movies.id}>
-              <span>{movies.title}</span>
-
-      </div>
+      return <tr key={movies.id}>
+              <th scope="row"><Link to={"/Moviedetails/?id="+movies.id}>{movies.title}</Link></th>
+              <td data-title="Released">{movies.release_date}</td>
+              <td data-title="Rating">{movies.vote_average}</td>
+      </tr>
     })
     return (
      <div className="container-fluid">
 
-        <h1>
-           Playing in theatres
-        </h1>
-
-        {movies}
+      <table className="responsive-table">
+        <caption>Playing in theatres</caption>
+        <thead>
+          <tr>
+            <th scope="col">Film Title</th>
+            <th scope="col">Released</th>
+            <th scope="col">Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+         {movies}
+        </tbody>
+      </table>
+        
          </div>
     );
   }

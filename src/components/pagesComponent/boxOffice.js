@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import postscribe from 'krux-postscribe';
+//import postscribe from 'krux-postscribe';
 
 
 

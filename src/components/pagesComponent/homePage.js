@@ -35,14 +35,14 @@ class Homepage extends Component {
     var movies = _.map(this.state.movies, (movies) => {
       return  <article key={movies.id} className="col-lg-5 col-md-5 col-sm-5 col-xs-5 col-xxs-12 animate-box info_movie__article">
                   <figure>
-                  <Link to={"/Moviedetails/?id="+movies.id} className="col-lg-4 col-md-4 col-sm-4"><img src={'http://image.tmdb.org/t/p/w185'+movies.poster_path} 
+                  <Link to={"/Moviedetails/?id="+movies.id} className="col-lg-4 col-md-4 col-sm-4 info_movies__poster"><img src={'http://image.tmdb.org/t/p/w185'+movies.poster_path} 
                   alt="placeholder" className="img-responsive"/></Link>
                   <div className="col-lg-5 col-md-5 col-sm-5 info_movies__synopsis_container">
                     <p className="info_movies__synopsis">{movies.overview}</p>
                   </div>
                   </figure>
-                  <h5 className="fh5co-article-title"><Link to={"/Moviedetails/?id="+movies.id}>{movies.original_title}</Link></h5>
-                  <span className="fh5co-meta fh5co-date">{movies.release_date}</span> 
+                  <h5 className="fh5co-article-title info_movies__title"><Link to={"/Moviedetails/?id="+movies.id}>{movies.original_title}</Link></h5>
+                  <span className="fh5co-meta fh5co-date info_movies__date">{movies.release_date}</span> 
               </article>
     
     });
