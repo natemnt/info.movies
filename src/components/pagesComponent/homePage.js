@@ -12,7 +12,7 @@ class Homepage extends Component {
   }
 
   componentWillMount(){
-    var url ="https://api.themoviedb.org/3/movie/upcoming?api_key=3aba18b4b741b327b46e5373e09a48f7&append_to_response=genre/movie/list&language=en-US&page=1";
+    var url ="https://api.themoviedb.org/3/movie/upcoming?api_key=3aba18b4b741b327b46e5373e09a48f7&language=en-US&page=1";
     Request.get(url).then((response) => {
       this.setState({
         movies: response.body.results 

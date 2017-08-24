@@ -7,7 +7,7 @@ class Header extends Component {
       <header>
           
           <div className="logo">
-            LOGO
+            <img src={require("../../Assets/images/info.movies.png")} alt="The info.movies logo" className="info_movies__logo"/>
           </div>
 
           <nav>
