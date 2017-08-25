@@ -1,6 +1,6 @@
 {
   "name": "info.movies",
-  "homepage": "https://github.com/natemnt.io/info.movies",
+  "homepage": "https://natemnt.github.io/info.movies",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
