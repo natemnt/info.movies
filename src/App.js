@@ -7,7 +7,8 @@ import {
 //components
 import Header from './components/headerComponent/header';
 import Footer from './components/footerComponent/footer';
-import Homepage from './components/pagesComponent/index';
+import Login from './components/formsComponent/loginForm';
+import Homepage from './components/pagesComponent/homePage';
 import Newrelease from './components/pagesComponent/newRelease';
 import Boxoffice from './components/pagesComponent/boxOffice';
 import Search from './components/pagesComponent/search';
@@ -26,6 +27,7 @@ class App extends Component {
         <Header/>
 
           <Route exact path='/' component={Homepage}/>
+          <Route exact path='/info.movies' component={Login}/>
           <Route exact path='/Newrelease' component={Newrelease}/>
           <Route exact path='/Boxoffice' component={Boxoffice}/>
           <Route exact path='/Search' component={Search}/>
