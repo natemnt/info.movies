@@ -7,7 +7,7 @@ import {
 //components
 import Header from './components/headerComponent/header';
 import Footer from './components/footerComponent/footer';
-import Homepage from './components/pagesComponent/homePage';
+import Homepage from './components/pagesComponent/index';
 import Newrelease from './components/pagesComponent/newRelease';
 import Boxoffice from './components/pagesComponent/boxOffice';
 import Search from './components/pagesComponent/search';

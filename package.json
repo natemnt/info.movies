@@ -1,8 +1,8 @@
 {
   "name": "info.movies",
+  "homepage": "https://github.com/natemnt.io/info.movies",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/natemnt.io/info.movies",
   "dependencies": {
     "gh-pages": "^1.0.0",
     "gulp": "^3.9.1",
