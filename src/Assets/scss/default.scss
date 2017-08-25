@@ -107,8 +107,31 @@ footer{
     img{
         margin-right:0;
     }
-}
+}/*end of movie article styling*/
 
+/*signup and login styling*/
+.info_movies__signup-login{
+  height: 300px;
+  width:55%;
+  margin:0 auto;
+  background-color:$darkBlue;
+
+  .info_movies__signup-login_buttons{
+    height:100px;
+  }
+  p{
+    color:$white;
+    float:left;
+    width:50%;
+    text-align: center;
+    margin:0;
+    height: 50%;
+    padding-top:25px;
+  }
+  p:hover{
+    background:#f1c40f; color:#2c3e50;
+  }
+}
 .responsive-table{
     width:100%;
     margin-bottom:1.5em;

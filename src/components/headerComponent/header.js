@@ -21,8 +21,11 @@ class Header extends Component {
                   <li style={{marginRight:2+'em'}}>
                       <Link to="/Boxoffice">Box Office</Link>    
                   </li>
-                  <li className="last" style={{marginRight:2+'em'}}>
+                  <li style={{marginRight:2+'em'}}>
                       <Link to="/Search">Search</Link>
+                  </li>
+                  <li className="last" style={{marginRight:2+'em'}}>
+                      <Link to="/info.movies">My account</Link>
                   </li>
               </ul>
               </nav>
