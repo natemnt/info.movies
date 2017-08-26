@@ -111,8 +111,8 @@ footer{
 
 /*signup and login styling*/
 .info_movies__signup-login{
-  height: 300px;
-  width:55%;
+  height: $height;
+  width:500px;
   margin:0 auto;
   background-color:$darkBlue;
 
@@ -130,6 +130,19 @@ footer{
   }
   p:hover{
     background:#f1c40f; color:#2c3e50;
+    cursor: pointer;
+  }
+  .signup{
+    background:$darkBlue;
+  }
+  .signup > input, .signup > button{
+    margin: 10px 0 0 125px;
+  }
+  #firstname,#lastname,#email{width:250px;}
+
+  .login > #email, .login > #password, .login > button{
+    width:250px;
+    margin:30px 0 0 125px;
   }
 }
 .responsive-table{

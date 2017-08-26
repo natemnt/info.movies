@@ -5,19 +5,16 @@ class Login extends Component {
     render(){
 
         return(
-            <div className="container-fluid">
-            <h1>Login Form</h1>
-
-            <form className="info_movies__signup-login">
-                <div className="info_movies__signup-login_buttons">
-                    <p className="info_movies__signup_button">Sign In</p>
-                    <p className="info_movies__login_button">Login</p>
-                </div>
-            </form>
-
+            <div className="login">
+                <input type="text" id="email" placeholder="Email"/>
+                <input type="text" id="password" placeholder="Password"/>
+                <button id="login">login</button>
             </div>
-        );
+        )
     }
+  
+
+ 
 }
 
 export default Login;
