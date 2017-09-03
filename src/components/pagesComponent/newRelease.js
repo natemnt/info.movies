@@ -34,7 +34,7 @@ class Newrelease extends Component {
     return (
      <div className="container-fluid">
 
-      <table className="responsive-table">
+      <table className="table table-striped">
         <caption>Playing in theatres</caption>
         <thead>
           <tr>

@@ -16,7 +16,7 @@ class Registration extends Component{
       signupLogin(word){
           
           var signup, login;
-          if(word == "signup"){signup = true; login = false;}
+          if(word === "signup"){signup = true; login = false;}
             else{login = true; signup = false;}
             console.log(word);
           return this.setState({signup:signup,login:login});
