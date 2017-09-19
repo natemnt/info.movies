@@ -62,7 +62,7 @@ class Search extends Component {
              <input type="text" value={this.state.value} ref={(input) => {this.textInput = input}}
                 onChange={this.handleChange} className="form-control" onClick={this.focus}/>
          </label>
-         <input type="submit" value="Search"/>
+         <input type="submit" className="btn" value="Search"/>
      </form>
         <ul>{movies}</ul>
     </div>

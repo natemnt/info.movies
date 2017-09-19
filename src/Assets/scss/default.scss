@@ -36,7 +36,7 @@ header{
           padding:0 1em;
 
           &:hover{
-            color:$red;
+            color:#FA8072;
             text-decoration: none;
             @include transition(.1s ease-in-out);
         }
@@ -166,7 +166,7 @@ footer{
   height: $height;
   width:70%;
   margin:0 auto;
-  background-color:$darkBlue;
+  background-color:$darkGrey;
 
   .info_movies__signup-login_buttons{
     height:100px;
@@ -181,11 +181,11 @@ footer{
     padding-top:25px;
   }
   p:hover{
-    background:#f1c40f; color:#2c3e50;
+    background-color: #FA8072;
     cursor: pointer;
   }
   .signup{
-    background:$darkBlue;
+    background:$darkGrey;
   }
   .signup > input, .signup > button{
     margin: 5% 0 0 18%;

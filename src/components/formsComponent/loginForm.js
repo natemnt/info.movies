@@ -29,9 +29,7 @@ class Login extends Component {
                         ref={(input)=>{this.passwordInput = input}}/>
                 <button className="btn" id="login">login</button>
                 <button className="btn" id="facebookLogin" onClick={()=> {this.authWithFacebook()}}>Log In with Facebook</button>
-                <hr style={{marginTop: "10px", marginBottom: "10px"}}/>
-                <div style={{marginBottom:"10px"}} className="glyphicon glyphicon-info-sign"></div>
-                <h5> If you don't have an account already, this form will create one</h5>
+                
                
             </div>
         )
