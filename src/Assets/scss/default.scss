@@ -188,9 +188,9 @@ footer{
     background:$darkBlue;
   }
   .signup > input, .signup > button{
-    margin: 10px 0 0 125px;
+    margin: 5% 0 0 18%;
   }
-  #firstname,#lastname,#email{width:250px;}
+  #firstname,#lastname,#email,#password,#confirmPassword{width:70%;}
 
   .login > #email, .login > #password, .login > button{
     width:70%;
