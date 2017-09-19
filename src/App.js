@@ -18,14 +18,21 @@ import './Assets/css/default.min.css';
 import '../node_modules/react-modal-video/css/modal-video.min.css';
 
 
-
 class App extends Component {
+
+  constructor(){
+    super();
+    this.state={
+        authenticated:false
+    }
+  }
+
   render() {
     return (
       <Router>
       <div className="App">
         
-        <Header/>
+        <Header authenticated={this.state.authenticated}/>
 
           <Route exact path='/' component={Homepage}/>
           <Route exact path='/info.movies' component={Registration}/>

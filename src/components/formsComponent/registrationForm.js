@@ -27,7 +27,9 @@ class Registration extends Component{
                 return(
                     <div className="container-fluid">
                        
-                        <form className="info_movies__signup-login">
+                        <form onSubmit={(event) => {this.authWithEmailPassword(event)}} 
+                                ref={(form) => {this.loginForm}}
+                        className="info_movies__signup-login">
                             <div className="info_movies__signup-login_buttons">
                                 <p className="info_movies__signup_button" onClick={self.signupLogin.bind(null,"signup")}>Signup</p>
                                 <p className="info_movies__login_button" onClick={self.signupLogin.bind(null,"login")}>Login</p>

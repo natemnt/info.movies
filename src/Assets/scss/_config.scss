@@ -10,9 +10,9 @@ $lightBlue:	rgba(29,150,178,1);
 $darkBlue:#2c3e50;
 
 /*Breakpoints*/
-$bp-maggie: 15em; /*240px*/
-$bp-lisa: 30em;/*480*/
-$bp-bart: 48em;/*768*/
+$bp-extrasmall: 15em; /*240px*/
+$bp-medium: 30em;/*480*/
+$bp-large: 48em;/*768*/
 $bp-marge: 62em;/*992*/
 $bp-homer: 75em;/*1200*/
 
@@ -57,7 +57,7 @@ a{
     line-height: 24px;
     margin:5% 3%;
 
-    @media(min-width:$bp-bart){
+    @media(min-width:$bp-large){
         margin:2%;
     }
 

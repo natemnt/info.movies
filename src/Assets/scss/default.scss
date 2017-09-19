@@ -6,40 +6,92 @@ header{
     width: 100%;
     background: $black;
     color: $white;
-    height: 90px;
+    height: 120px;
 
     .logo{
         position: absolute;
         top: 50%; left:15px;
         @include translateY(-50%);
     }
-nav, nav ul{
-    margin: 0;
-    padding: 0;
-}
+
+
 
     nav{
+        background-color: $black;
+        overflow: hidden;
+        padding: 1em; 
         position: absolute;
-        top: 50%; right:15px;
+        top: 100%; 
+        right:15px;
+        
         @include translateY(-50%);
-    }
-
-    nav li{
-        list-style-type: none;
-        display: inline-block;
-        margin-right:20px;
-
-        &.last{
-            margin: 0;
-        }
+        
+      .navWide{
+        display:none;
+        margin:0 auto;
 
         a{
-                font-size: 19px;
-                line-height: normal;
-                color:$white;
-                text-decoration: none;
-            }
-    }   
+          text-decoration: none;
+          display:inline-block;
+          padding:0 1em;
+
+          &:hover{
+            color:$red;
+            text-decoration: none;
+            @include transition(.1s ease-in-out);
+        }
+        }
+      }
+
+    }
+
+    .navNarrow{
+      i{
+        float: right;
+        cursor: pointer;
+        color:$white;
+      }
+
+      .narrowLinks{
+        display:none;
+
+        a{
+          display: block;
+          float:right;
+          clear:right;
+          color:$white;
+          padding:0.5em 0;
+        }
+      }
+    }
+
+    @media(min-width:$bp-large){
+      nav{
+        padding:1em;
+        position: absolute;
+        top: 50%; 
+        right:15px;
+        .navWide{
+          display:block;
+
+          a{
+            color:$white;
+          }
+          a:visited{
+
+          }
+        }
+        .navNarrow{
+          display:none;
+          i{
+            float: right;
+            cursor: pointer;
+            color:$white;
+          }
+        }
+      }
+    }
+       
 }
 
 footer{
@@ -73,7 +125,7 @@ footer{
        margin-top:-10px;
        font-size:11px;
 
-       @media(min-width:$bp-bart){
+       @media(min-width:$bp-large){
            font-size:14px;
            margin: 0;
        }
@@ -82,7 +134,7 @@ footer{
         font-size:12px;
         display:none;
 
-        @media(min-width:$bp-bart){
+        @media(min-width:$bp-large){
             font-size:16px;
             display: block;
         }
@@ -94,7 +146,7 @@ footer{
         text-overflow: ellipsis;
         white-space: "...";
         display: none;
-        @media(min-width:$bp-bart){
+        @media(min-width:$bp-large){
             display: block;
         }
     }
@@ -112,7 +164,7 @@ footer{
 /*signup and login styling*/
 .info_movies__signup-login{
   height: $height;
-  width:500px;
+  width:70%;
   margin:0 auto;
   background-color:$darkBlue;
 
@@ -141,15 +193,19 @@ footer{
   #firstname,#lastname,#email{width:250px;}
 
   .login > #email, .login > #password, .login > button{
-    width:250px;
-    margin:30px 0 0 125px;
+    width:70%;
+    margin:5% 0 0 18%;
   }
+@media(min-width:$bp-large){
+  width:37%;
+}
+ 
 }
 .responsive-table{
     width:100%;
     margin-bottom:1.5em;
 
-    @media(min-width:$bp-bart){
+    @media(min-width:$bp-large){
         font-size:.9em;
     }
     @media(min-width:$bp-marge){
@@ -167,7 +223,7 @@ footer{
         width: 1px; 
         overflow: hidden;
 
-@media (min-width: $bp-bart) {
+@media (min-width: $bp-large) {
     // Unhide <thead> on wide viewports
     position: relative;
     clip: auto;
@@ -200,7 +256,7 @@ footer{
   }
 
   tr {   
-    @media (min-width: $bp-bart) {
+    @media (min-width: $bp-large) {
       // Undo display: block 
       display: table-row; 
     }
@@ -211,11 +267,11 @@ footer{
     padding: .5em;
     vertical-align: middle;
     
-    @media (min-width: $bp-lisa) {
+    @media (min-width: $bp-medium) {
       padding: .75em .5em; 
     }
     
-    @media (min-width: $bp-bart) {
+    @media (min-width: $bp-large) {
       // Undo display: block 
       display: table-cell;
       padding: .5em;
@@ -236,7 +292,7 @@ footer{
     font-weight: bold;
     text-align: center;
     
-    @media (min-width: $bp-bart) {
+    @media (min-width: $bp-large) {
       font-size: 1.5em;
     }
   }
@@ -251,7 +307,7 @@ footer{
   }
 
   tbody {
-    @media (min-width: $bp-bart) {
+    @media (min-width: $bp-large) {
       // Undo display: block 
       display: table-row-group; 
     }
@@ -260,7 +316,7 @@ footer{
       margin-bottom: 1em;
       border: 2px solid rgba(29,150,178,1);
       
-      @media (min-width: $bp-bart) {
+      @media (min-width: $bp-large) {
         // Undo display: block 
         display: table-row;
         border-width: 1px;
@@ -271,7 +327,7 @@ footer{
       }
       
       &:nth-of-type(even) {
-        @media (min-width: $bp-bart) {
+        @media (min-width: $bp-large) {
           background-color: rgba(94,93,82,.1);
         }
       }
@@ -286,7 +342,7 @@ footer{
         text-decoration: none;
       }
       
-      @media (min-width: $bp-bart) {
+      @media (min-width: $bp-large) {
         background-color: transparent;
         color: rgba(94,93,82,1);
         text-align: left;
@@ -301,11 +357,11 @@ footer{
     td {
       text-align: right;
       
-      @media (min-width: $bp-lisa) {
+      @media (min-width: $bp-medium) {
         border-bottom: 1px solid  rgba(29,150,178,1);
       }
       
-      @media (min-width: $bp-bart) {
+      @media (min-width: $bp-large) {
         text-align: center; 
       }
     }
@@ -320,11 +376,11 @@ footer{
       font-size: .8em;
       color: rgba(94,93,82,.75);
       
-      @media (min-width: $bp-lisa) {
+      @media (min-width: $bp-medium) {
         font-size: .9em; 
       }
       
-      @media (min-width: $bp-bart) {
+      @media (min-width: $bp-large) {
         // Don’t show data-title labels 
         content: none; 
       }

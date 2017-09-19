@@ -16,7 +16,7 @@ class Newrelease extends Component {
       this.setState({
         movies: response.body.results 
       });
-      console.log(this.state.movies);
+      //console.log(this.state.movies);
     });
     
   }
