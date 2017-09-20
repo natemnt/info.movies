@@ -40,7 +40,10 @@ body{
     color: $black;
     font-weight: 400;
     font-style: normal;
-    background-color: $light;
+    
+}
+#root{
+    background: $light!important;
 }
 
 a{
