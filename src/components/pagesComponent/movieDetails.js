@@ -16,7 +16,7 @@ class Moviedetails extends Component {
     search = search.substring(4);
 //console.log(search);
    
-    var apiKey = "?api_key=3aba18b4b741b327b46e5373e09a48f7&language=en-US";
+    var apiKey = "?api_key=3aba18b4b741b327b46e5373e09a48f7&append_to_response=credits";
     var url = "https://api.themoviedb.org/3/movie/";
 
 /*State is not set at the time within render function*/
@@ -51,7 +51,16 @@ class Moviedetails extends Component {
         var movieCompanies = _.map(movieDetails.production_companies,(movieCompanies) =>{
             return <span key={movieCompanies.id}>{movieCompanies.name} </span>
         });
-        console.log(movieDetails);
+
+        var movieCast = _.map(movieDetails.credits.cast,(movieCast) =>{
+            return (<div className="col-lg-3 col-md-6 col-sm-6">
+                    <div key={movieCast.id}>{movieCast.name}</div>
+                <img key={movieCast.cast_id} src={'http://image.tmdb.org/t/p/w185'+movieCast.profile_path} alt="a film cast member"/>
+                </div>
+            )
+                    
+        })
+        console.log(movieDetails.credits.cast);
       }
      
 
@@ -77,7 +86,15 @@ class Moviedetails extends Component {
         <p className="info_movies__details_desc">Duration: {movieDetails.runtime}minutes</p>
         <p className="info_movies__details_desc">Production Companies: {movieCompanies}</p>
         <p className="info_movies__details_desc">Budget: ${movieDetails.budget}</p>
-            </div>
+
+        
+            <p>Cast</p>
+            
+            {movieCast}
+        
+           
+            
+        </div>
         </div>
     </div>
     );

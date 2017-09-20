@@ -28,7 +28,7 @@ class Login extends Component {
                 <input type="text" id="password" placeholder="Password"
                         ref={(input)=>{this.passwordInput = input}}/>
                 <button className="btn" id="login">login</button>
-                <button className="btn" id="facebookLogin" onClick={()=> {this.authWithFacebook()}}>Log In with Facebook</button>
+                <button className="btn btn-primary" id="facebookLogin" onClick={()=> {this.authWithFacebook()}}>Log In with Facebook</button>
                 
                
             </div>

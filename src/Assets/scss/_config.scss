@@ -8,6 +8,8 @@ $darkGrey:#A9A9A9;
 $red:#ff0000;
 $lightBlue:	rgba(29,150,178,1);
 $darkBlue:#2c3e50;
+$tint:#f9f9ea;
+$light:#f1f1f1;
 
 /*Breakpoints*/
 $bp-extrasmall: 15em; /*240px*/
@@ -38,6 +40,7 @@ body{
     color: $black;
     font-weight: 400;
     font-style: normal;
+    background-color: $light;
 }
 
 a{

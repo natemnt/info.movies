@@ -4,7 +4,7 @@ header{
     position: relative;
     display: block;
     width: 100%;
-    background: $black;
+    background: $white;
     color: $white;
     height: 120px;
 
@@ -17,7 +17,7 @@ header{
 
 
     nav{
-        background-color: $black;
+        background-color: $white;
         overflow: hidden;
         padding: 1em; 
         position: absolute;
@@ -59,7 +59,7 @@ header{
           display: block;
           float:right;
           clear:right;
-          color:$white;
+          color:$black;
           padding:0.5em 0;
         }
       }
@@ -75,18 +75,16 @@ header{
           display:block;
 
           a{
-            color:$white;
+            color:$black;
           }
-          a:visited{
-
-          }
+         
         }
         .navNarrow{
           display:none;
           i{
             float: right;
             cursor: pointer;
-            color:$white;
+            color:$black;
           }
         }
       }
@@ -115,11 +113,10 @@ footer{
 /*Movie article styling*/
 .info_movie__article{
     margin-top:20px;
-    margin-left:20px;
-    height:240px;
-    -webkit-box-shadow: 3px 3px 5px 6px #ccc; 
-    -moz-box-shadow:    3px 3px 5px 6px #ccc;  
-    box-shadow:         3px 3px 5px 6px #ccc;
+    //margin-left:-100px;
+    height:100%;
+    
+  
 
    .info_movies__title{
        margin-top:-10px;
@@ -156,14 +153,21 @@ footer{
     .info_movies__poster{
         margin-top:13px;
     }
-    img{
+    /*img{
         margin-right:0;
-    }
+    }*/
+
+    @media(min-width){
+      margin-top:20px;
+      //margin-left:-100px;
+      height:310px;
+     }
 }/*end of movie article styling*/
 
 /*signup and login styling*/
 .info_movies__signup-login{
   height: $height;
+  border-radius: 10px;
   width:70%;
   margin:0 auto;
   background-color:$darkGrey;
@@ -180,25 +184,34 @@ footer{
     height: 50%;
     padding-top:25px;
   }
-  p:hover{
+  .info_movies__signup_button:hover{
     background-color: #FA8072;
     cursor: pointer;
+    border-radius:10px 0; 
+  }
+  .info_movies__login_button:hover{
+    background-color: #FA8072;
+    cursor: pointer;
+    border-radius:0 10px; 
   }
   .signup{
     background:$darkGrey;
   }
   .signup > input, .signup > button{
     margin: 5% 0 0 18%;
+    border-radius:10px;
   }
-  #firstname,#lastname,#email,#password,#confirmPassword{width:70%;}
+  #firstname,#lastname,#email,#password,#confirmPassword,#signup{width:70%;}
 
   .login > #email, .login > #password, .login > button{
     width:70%;
     margin:5% 0 0 18%;
+    border-radius:10px;
   }
 @media(min-width:$bp-large){
-  width:37%;
+  width:330px;
 }
+
  
 }
 .responsive-table{
