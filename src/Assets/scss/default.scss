@@ -5,7 +5,7 @@ header{
     display: block;
     width: 100%;
     background: $white;
-    color: $light;
+   color:$black;
     height: 120px;
 
     .logo{
@@ -49,7 +49,7 @@ header{
       i{
         float: right;
         cursor: pointer;
-        color:$white;
+        color:$black;
       }
 
       .narrowLinks{
