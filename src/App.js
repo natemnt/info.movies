@@ -13,6 +13,7 @@ import Newrelease from './components/pagesComponent/newRelease';
 import Boxoffice from './components/pagesComponent/boxOffice';
 import Search from './components/pagesComponent/search';
 import Moviedetails from './components/pagesComponent/movieDetails';
+import Cast from './components/pagesComponent/castDetails';
 //includes
 import './Assets/css/default.min.css';
 import '../node_modules/react-modal-video/css/modal-video.min.css';
@@ -40,6 +41,7 @@ class App extends Component {
           <Route exact path='/Boxoffice' component={Boxoffice}/>
           <Route exact path='/Search' component={Search}/>
           <Route exact path='/Moviedetails' component={Moviedetails}/>
+          <Route exact path='/Cast' component={Cast}/>
         <Footer/>
       </div>
       </Router>

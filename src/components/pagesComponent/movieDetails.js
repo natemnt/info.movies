@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Request from 'superagent';
 import Videolinks from '../formsComponent/videoLink';
 import _ from 'lodash';
+import {Link} from 'react-router-dom';
 
 //movie component
 class Moviedetails extends Component {
@@ -53,25 +54,35 @@ class Moviedetails extends Component {
         });
 
         var movieCast = _.map(movieDetails.credits.cast,(movieCast) =>{
-            return (<div className="col-lg-3 col-md-6 col-sm-6">
-                    <div key={movieCast.id}>{movieCast.name}</div>
+            if(movieCast.profile_path == null){
+                return(<div className="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-xxs-5">
+                <Link to={'/Cast/?id='+movieCast.id}><div key={movieCast.id}>{movieCast.name}</div></Link>
+                <img src={''} alt="a film cast member"/>
+            </div>
+                
+                )
+            }
+            return (<div className="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-xxs-5">
+                    <Link to={'/Cast/?id='+movieCast.id}><div key={movieCast.id}>{movieCast.name}</div></Link>
+                   
                 <img key={movieCast.cast_id} src={'http://image.tmdb.org/t/p/w185'+movieCast.profile_path} alt="a film cast member"/>
                 </div>
             )
                     
         })
-        console.log(movieDetails.credits.cast);
+        //console.log(movieDetails);
       }
      
 
       
     return (
-     <div className="container-fluid">
+     <div className="container">
          
         <div className="row fh5co-post-entry single-entry">
 
             <div className="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
                 <h1>Details</h1>
+                
             <figure className="animate-box">
                 <img src={'http://image.tmdb.org/t/p/w185'+movieDetails.poster_path} alt="movie poster"/>
             </figure>

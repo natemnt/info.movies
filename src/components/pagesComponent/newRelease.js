@@ -25,30 +25,34 @@ class Newrelease extends Component {
   render() {
 
     var movies = _.map(this.state.movies,(movies) => {
-      return <tr key={movies.id}>
-              <th scope="row"><Link to={"/Moviedetails/?id="+movies.id}>{movies.title}</Link></th>
-              <td data-title="Released">{movies.release_date}</td>
-              <td data-title="Rating">{movies.vote_average}</td>
-      </tr>
+      return  <div key={movies.id} className="col-lg-4 col-md-4 col-sm-4 col-xs-6 col-xxs-12">
+                <div>
+                  <Link to={"/Moviedetails/?id="+movies.id}><img src={'http://image.tmdb.org/t/p/w185'+movies.poster_path} 
+                      alt="poster of a film"
+                      /></Link>
+                  <div>
+                  <Link to={"/Moviedetails/?id="+movies.id} style={{fontSize:13+"px"}}>{movies.title}</Link>
+                  </div>
+                  <div className="info_movies__release_date"
+                        style={{fontSize:13+"px"}}>
+                  {movies.release_date}
+                  </div>
+                  <div className="info_movies__vote"
+                        style={{fontSize:13+'px'}}>
+                  {movies.vote_average}</div>
+                </div>
+              </div>
+              
     })
     return (
-     <div className="container-fluid">
-
-      <table className="table table-striped">
-        <caption>Playing in theatres</caption>
-        <thead>
-          <tr>
-            <th scope="col">Film Title</th>
-            <th scope="col">Released</th>
-            <th scope="col">Rating</th>
-          </tr>
-        </thead>
-        <tbody>
-         {movies}
-        </tbody>
-      </table>
-        
-         </div>
+     <div className="container">
+       <h1>
+            Playing in Theatres
+        </h1>
+       <div className="row">
+        {movies}
+        </div>
+      </div>
     );
   }
 }

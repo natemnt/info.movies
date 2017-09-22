@@ -56,13 +56,17 @@ class Search extends Component {
         
          <div>
      <form onSubmit={this.handleSubmit} className="form-group">
-         <label>
-             
-             Type a movie:
-             <input type="text" value={this.state.value} ref={(input) => {this.textInput = input}}
-                onChange={this.handleChange} className="form-control" onClick={this.focus}/>
-         </label>
-         <input type="submit" className="btn" value="Search"/>
+         <div className="row">
+            <div className="col-lg-6 col-md-6 col-sm-8 col-xs-8">
+                Type a movie:
+                <input type="text" value={this.state.value} ref={(input) => {this.textInput = input}}
+                    onChange={this.handleChange} className="form-control" onClick={this.focus}/>
+            </div>
+         </div>
+         <div className="top-buffer"></div>
+         <div>
+            <input type="submit" className="btn" value="Search"/>
+         </div>
      </form>
         <ul>{movies}</ul>
     </div>

@@ -29,7 +29,7 @@ class Nav extends Component{
                         
                                 <Link to="/Newrelease">New Releases</Link>
                             
-                                <Link to="/Boxoffice">Box Office</Link>    
+                                   
                            
                                 <Link to="/Search">Search</Link>
                             
@@ -57,7 +57,7 @@ class Nav extends Component{
   
                                 <Link to="/Newrelease"onClick={this.burgerToggle}>New Releases</Link>
                           
-                                <Link to="/Boxoffice" onClick={this.burgerToggle}>Box Office</Link>    
+                                   
                             
                                 <Link to="/Search" onClick={this.burgerToggle}>Search</Link>
                             

@@ -113,10 +113,7 @@ footer{
 /*Movie article styling*/
 .info_movie__article{
     margin-top:20px;
-    //margin-left:-100px;
     height:100%;
-    
-  
 
    .info_movies__title{
        margin-top:-10px;
@@ -153,13 +150,9 @@ footer{
     .info_movies__poster{
         margin-top:13px;
     }
-    /*img{
-        margin-right:0;
-    }*/
 
     @media(min-width){
       margin-top:20px;
-      //margin-left:-100px;
       height:310px;
      }
 }/*end of movie article styling*/
@@ -210,193 +203,12 @@ footer{
   }
 @media(min-width:$bp-large){
   width:330px;
+  }
+
 }
-
- 
+.top-buffer{
+  margin-top: 20px;
 }
-.responsive-table{
-    width:100%;
-    margin-bottom:1.5em;
-
-    @media(min-width:$bp-large){
-        font-size:.9em;
-    }
-    @media(min-width:$bp-marge){
-        font-size:1em;
-    }
-
-    thead {
-        // Accessibly hide <thead> on narrow viewports
-        position: absolute;
-        clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-        clip: rect(1px, 1px, 1px, 1px);
-        padding: 0;
-        border: 0;
-        height: 1px; 
-        width: 1px; 
-        overflow: hidden;
-
-@media (min-width: $bp-large) {
-    // Unhide <thead> on wide viewports
-    position: relative;
-    clip: auto;
-    height: auto;
-    width: auto;
-    overflow: auto;
-  }
-  th {
-    /*background-color: rgba(29,150,178,1);
-    border: 1px solid rgba(29,150,178,1);*/
-    font-weight: normal;
-    text-align: center;
-    color: white;
-    
-    &:first-of-type {
-      text-align: left; 
-    }
-  }
-}
-
-  // Set these items to display: block for narrow viewports
-  tbody,
-  tr,
-  th,
-  td {
-    display: block;
-    padding: 0;
-    text-align: left;
-    white-space: normal;
-  }
-
-  tr {   
-    @media (min-width: $bp-large) {
-      // Undo display: block 
-      display: table-row; 
-    }
-  }
-
-  th,
-  td {
-    padding: .5em;
-    vertical-align: middle;
-    
-    @media (min-width: $bp-medium) {
-      padding: .75em .5em; 
-    }
-    
-    @media (min-width: $bp-large) {
-      // Undo display: block 
-      display: table-cell;
-      padding: .5em;
-    }
-    
-    @media (min-width: $bp-marge) {
-      padding: .75em .5em; 
-    }
-    
-    @media (min-width: $bp-homer) {
-      padding: .75em; 
-    }
-  }
-
-  caption {
-    margin-bottom: 1em;
-    font-size: 1em;
-    font-weight: bold;
-    text-align: center;
-    
-    @media (min-width: $bp-large) {
-      font-size: 1.5em;
-    }
-  }
-
-  tfoot {
-    font-size: .8em;
-    font-style: italic;
-    
-    @media (min-width: $bp-marge) {
-      font-size: .9em;
-    }
-  }
-
-  tbody {
-    @media (min-width: $bp-large) {
-      // Undo display: block 
-      display: table-row-group; 
-    }
-    
-    tr {
-      margin-bottom: 1em;
-      border: 2px solid rgba(29,150,178,1);
-      
-      @media (min-width: $bp-large) {
-        // Undo display: block 
-        display: table-row;
-        border-width: 1px;
-      }
-      
-      &:last-of-type {
-        margin-bottom: 0; 
-      }
-      
-      &:nth-of-type(even) {
-        @media (min-width: $bp-large) {
-          background-color: rgba(94,93,82,.1);
-        }
-      }
-    }
-    
-    th[scope="row"] {
-      background-color: rgba(29,150,178,1);
-      color:$white;
-
-      a{
-        color: $white;
-        text-decoration: none;
-      }
-      
-      @media (min-width: $bp-large) {
-        background-color: transparent;
-        color: rgba(94,93,82,1);
-        text-align: left;
-
-        a{
-            color: rgba(94,93,82,.75);
-            text-decoration: none;
-          }
-      }
-    }
-    
-    td {
-      text-align: right;
-      
-      @media (min-width: $bp-medium) {
-        border-bottom: 1px solid  rgba(29,150,178,1);
-      }
-      
-      @media (min-width: $bp-large) {
-        text-align: center; 
-      }
-    }
-    
-    td[data-type=currency] {
-      text-align: right; 
-    }
-    
-    td[data-title]:before {
-      content: attr(data-title);
-      float: left;
-      font-size: .8em;
-      color: rgba(94,93,82,.75);
-      
-      @media (min-width: $bp-medium) {
-        font-size: .9em; 
-      }
-      
-      @media (min-width: $bp-large) {
-        // Don’t show data-title labels 
-        content: none; 
-      }
-    } 
-  }
+hr{
+  border:1px solid $black;
 }

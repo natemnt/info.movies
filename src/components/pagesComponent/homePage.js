@@ -35,7 +35,7 @@ class Homepage extends Component {
     //console.log(this.state.movies);
     var movies = _.map(this.state.movies, (movies) => {
       return  <article key={movies.id} 
-                      className="col-lg-3 col-md-3 col-sm-4 col-xs-5 col-xxs-12 animate-box info_movie__article">
+                      className="col-lg-4 col-md-4 col-sm-4 col-xs-6 col-xxs-12 animate-box info_movie__article">
                   <figure>
                   <Link to={"/Moviedetails/?id="+movies.id} 
                         className="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xxs-12 offset-lg-1 info_movies__poster">
@@ -56,7 +56,7 @@ class Homepage extends Component {
             Up Coming Films
         </h1>
           {movies}
-          <div className="clearfix visible-xs-block"></div>
+          
          </div>
     );
   }
