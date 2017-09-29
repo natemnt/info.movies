@@ -52,20 +52,23 @@ class Moviedetails extends Component {
         var movieCompanies = _.map(movieDetails.production_companies,(movieCompanies) =>{
             return <span key={movieCompanies.id}>{movieCompanies.name} </span>
         });
-
+            
         var movieCast = _.map(movieDetails.credits.cast,(movieCast) =>{
-            if(movieCast.profile_path == null){
-                return(<div className="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-xxs-5">
+            if(movieCast.profile_path === null){
+                return(<div className="col-lg-3 col-md-6 col-sm-6 col-xs-12 col-xxs-12">
                 <Link to={'/Cast/?id='+movieCast.id}><div key={movieCast.id}>{movieCast.name}</div></Link>
-                <img src={''} alt="a film cast member"/>
+                <img src={require('../../Assets/images/profile.png')}
+                    alt="a film cast member" className="img-responsive"/>
             </div>
                 
                 )
             }
-            return (<div className="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-xxs-5">
+            console.log(movieCast)
+            return (<div className="col-lg-3 col-md-6 col-sm-6 col-xs-12 col-xxs-12">
                     <Link to={'/Cast/?id='+movieCast.id}><div key={movieCast.id}>{movieCast.name}</div></Link>
                    
-                <img key={movieCast.cast_id} src={'http://image.tmdb.org/t/p/w185'+movieCast.profile_path} alt="a film cast member"/>
+                <img key={movieCast.cast_id} src={'http://image.tmdb.org/t/p/w185'+movieCast.profile_path} 
+                    alt="a film cast member" className="img-responsive"/>
                 </div>
             )
                     
@@ -82,9 +85,9 @@ class Moviedetails extends Component {
 
             <div className="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
                 <h1>Details</h1>
-                
             <figure className="animate-box">
-                <img src={'http://image.tmdb.org/t/p/w185'+movieDetails.poster_path} alt="movie poster"/>
+                <img src={'http://image.tmdb.org/t/p/w185'+movieDetails.poster_path} 
+                    alt="movie poster" className="img-responsive"/>
             </figure>
         
                 <Videolinks movieId={idKey}/>

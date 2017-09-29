@@ -47,7 +47,7 @@ class Search extends Component {
      });
 
     return (
-     <div className="container-fluid">
+     <div className="container">
 
         <h1>
             What's your favorite movie?

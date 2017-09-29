@@ -51,7 +51,7 @@ class Homepage extends Component {
     
     });
     return (
-     <div className="container-fluid">
+     <div className="container">
         <h1>
             Up Coming Films
         </h1>

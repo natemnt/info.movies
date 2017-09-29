@@ -4,6 +4,7 @@ import {
   Route
 } from 'react-router-dom';
 
+
 //components
 import Header from './components/headerComponent/header';
 import Footer from './components/footerComponent/footer';
@@ -14,6 +15,7 @@ import Boxoffice from './components/pagesComponent/boxOffice';
 import Search from './components/pagesComponent/search';
 import Moviedetails from './components/pagesComponent/movieDetails';
 import Cast from './components/pagesComponent/castDetails';
+
 //includes
 import './Assets/css/default.min.css';
 import '../node_modules/react-modal-video/css/modal-video.min.css';
@@ -32,9 +34,9 @@ class App extends Component {
     return (
       <Router>
       <div className="App">
-        
+        <div className="wrapper">
         <Header authenticated={this.state.authenticated}/>
-
+          <div className="content">
           <Route exact path='/' component={Homepage}/>
           <Route exact path='/info.movies' component={Registration}/>
           <Route exact path='/Newrelease' component={Newrelease}/>
@@ -42,7 +44,9 @@ class App extends Component {
           <Route exact path='/Search' component={Search}/>
           <Route exact path='/Moviedetails' component={Moviedetails}/>
           <Route exact path='/Cast' component={Cast}/>
+          </div>
         <Footer/>
+        </div>
       </div>
       </Router>
     );

@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import Request from 'superagent';
-
 import ModalVideo from 'react-modal-video';
-require('../../../node_modules/react-modal-video/scss/modal-video.scss');
+
 
 
 //video component
@@ -56,7 +55,7 @@ onClickVideo(){
         return (
             <div>
                 <ModalVideo channel='youtube' ref="playTrailer" isOpen={val} videoId={this.state.videoKey}/>
-                <button className="btn btn-primary" ref="trailer" onClick={this.onClickVideo}>Click here to view the trailer</button>
+                <button className="btn btn-primary trailer-btn" ref="trailer" onClick={this.onClickVideo}>View the trailer</button>
                 
             </div>
         );   
