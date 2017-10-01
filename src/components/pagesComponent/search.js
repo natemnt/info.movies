@@ -65,7 +65,7 @@ class Search extends Component {
          </div>
          <div className="top-buffer"></div>
          <div>
-            <input type="submit" className="btn" value="Search"/>
+            <input type="submit" className="btn btn-primary" value="Search"/>
          </div>
      </form>
         <ul>{movies}</ul>
