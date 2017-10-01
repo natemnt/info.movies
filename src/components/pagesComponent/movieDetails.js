@@ -63,7 +63,7 @@ class Moviedetails extends Component {
                 
                 )
             }
-            console.log(movieCast)
+            //console.log(movieCast)
             return (<div className="col-lg-3 col-md-6 col-sm-6 col-xs-12 col-xxs-12">
                     <Link to={'/Cast/?id='+movieCast.id}><div key={movieCast.id}>{movieCast.name}</div></Link>
                    
@@ -84,7 +84,7 @@ class Moviedetails extends Component {
         <div className="row fh5co-post-entry single-entry">
 
             <div className="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
-                <h1>Details</h1>
+                <h1 className="col-xs-10 col-sm-10">Details</h1>
             <figure className="animate-box">
                 <img src={'http://image.tmdb.org/t/p/w185'+movieDetails.poster_path} 
                     alt="movie poster" className="img-responsive"/>

@@ -3,9 +3,10 @@ import {Link} from 'react-router-dom';
 
 class Nav extends Component{
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state={}
+        //console.log(this.props)
     }
 
     burgerToggle(){
@@ -26,20 +27,18 @@ class Nav extends Component{
                     <div className="wideDiv">
                         
                                 <Link to="/">Home</Link>
-                        
                                 <Link to="/Newrelease">New Releases</Link>
-                            
-                                   
-                           
                                 <Link to="/Search">Search</Link>
                             
                             {this.props.authenticated
-                            ? (
-                            
-                                <Link to="#">
-                                <span className="glyphicon glyphicon-user"></span>
-                                </Link>
-                            
+                            ? (<span>
+                                    <Link to="/dashboard">
+                                    <span className="glyphicon glyphicon-user"></span>
+                                    </Link>
+                                    <Link to="/logout" aria-label="Log out">
+                                    <span className="glyphicon glyphicon-log-out"></span>
+                                    </Link>
+                                </span>
                             )
                             : (
                             
@@ -62,12 +61,15 @@ class Nav extends Component{
                                 <Link to="/Search" onClick={this.burgerToggle}>Search</Link>
                             
                             {this.props.authenticated
-                            ? (
-                            
-                                <Link to="#" onClick={this.burgerToggle}>
+                            ? ( <span>
+                                <Link to="/dashboard" onClick={this.burgerToggle}>
                                 <span className="glyphicon glyphicon-user"></span>
                                 </Link>
-                          
+                                <Link to="/logout" aria-label="Log out">
+                                <span className="glyphicon glyphicon-log-out"
+                                onClick={this.burgerToggle}></span>
+                                </Link>
+                                </span>
                             )
                             : (
                                 <Link to="/info.movies" onClick={this.burgerToggle}>My account</Link>

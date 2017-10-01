@@ -1,0 +1,40 @@
+{
+    "allFriends":[
+        {
+            "userName":"John Mighton",
+            "dateAdded":"2017-06-07",
+            "favoriteMovies":["Matrix","Die Hard"],
+            "moviesWatched":["Transformers","Jurassic Park"]
+
+        },
+        {
+            "userName":"Kevin De Brune",
+            "dateAdded":"2017-08-07",
+            "favoriteMovies":["Thor","Die Hard"],
+            "moviesWatched":["Mother!","Jurassic Park"]
+
+        },
+        {
+            "userName":"Shane",
+            "dateAdded":"2017-09-07",
+            "favoriteMovies":["Speed","Harry Potter"],
+            "moviesWatched":["Fast5","Jurassic Park"]
+
+        }
+    ],
+    "comments":[
+        {
+            "commentId":"1",
+            "userName":"Shane",
+            "date":"2017-07-07",
+            "comment":"This is my favorite movie"
+        },
+        {
+            "commentId":"2",
+            "userName":"John Mighton",
+            "date":"2017-08-07",
+            "comment":"That was a solid movie"
+        }
+    ],
+    "errors":[]
+}

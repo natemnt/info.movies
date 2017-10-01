@@ -1,4 +1,8 @@
 import React,{Component} from 'react';
+import {Redirect} from 'react-router-dom';
+import {app, facebookProvider} from '../../base';
+import ErrorM from '../messageComponent/errorMessage';
+import WarningM from '../messageComponent/warningMessage';
 
 const registrationStyles = {
     width: "90%",
@@ -8,15 +12,18 @@ const registrationStyles = {
     padding: "10px",
     border: "1px solid #ddd",
     backgroundColor: "#d3d3d3"
+    
 }
 
 const inputStyles ={
     
     maxWidth:"315px",
-    margin:"20px auto"
+    margin:"20px 10px 10px 20px",
+    width:"90%"
 }
 const infoBox ={
     marginBotton: "10px",
+    marginTop:"10px",
     backgroundColor:"#A9A9A9",
     padding:"10px"
 }
@@ -24,7 +31,11 @@ class Registration extends Component{
 
     constructor(props){
         super(props);
-        this.state = {};
+        this.state = {
+            redirect:false,
+            errorMessage:'',
+            warningMessage: ''
+        };
 
         this.authWithFacebook = this.authWithFacebook.bind(this)
         this.authWithEmailPassword = this.authWithEmailPassword.bind(this)
@@ -32,22 +43,60 @@ class Registration extends Component{
 
       authWithEmailPassword(event){
         event.preventDefault()
-        console.log("auth with email")
-        console.table([{
-            email:this.emailInput.value,
-            password: this.passwordInput.value
-        }])
+        
+        const email = this.emailInput.value
+        const password = this.passwordInput.value;
+
+        /*this fetches all users and checks for a match*/
+        app.auth().fetchProvidersForEmail(email)
+        .then((providers) => {
+            if(providers.length === 0){
+                //logic to create user
+                return app.auth().createUserWithEmailAndPassword(email,password)
+            }else if(providers.indexOf("password") === -1){
+                //they used facebook to signin
+                this.loginForm.reset()
+                this.setState({warningMessage:'Try an alternative'})
+            }else{
+                //sign user in
+                return app.auth().signInWithEmailAndPassword(email, password)
+            }
+        }).then((user)=>{
+            if(user && user.email){
+                this.loginForm.reset()
+                this.setState({redirect:true})
+            }
+        })
+        .catch((error) =>{
+            this.setState({errorMessage:error.message})
+        })
     }
 
     authWithFacebook(){
+        app.auth().signInWithPopup(facebookProvider)
+        .then((result, error) => {
+            if (error){
+                this.setState({errorMessage:'Something went wrong'})   
+            }else{
+                this.setState({redirect:true})
+            }
+        })
         
-        console.log("auth facebook")
     }
 
       render(){
-        
+
+        if (this.state.redirect === true){
+            return <Redirect to='/'/>
+        }
                 return(
                     <div className="container">
+                        
+                        <WarningM warningMessage={this.state.warningMessage}/>
+
+                        <ErrorM errorMessage={this.state.errorMessage}/>
+                            
+                            {/*login form*/}
                        <div style={registrationStyles}>
                         <button className="btn btn-primary" id="facebookLogin" 
                         onClick={()=> {this.authWithFacebook()}}
@@ -60,10 +109,10 @@ class Registration extends Component{
                         <div style={infoBox} className="fa fa-info-circle">
                             An account will be created for new users
                         </div>
-                            <label>Email: </label>
+                            
                         <input type="text" id="email" placeholder="Email" 
                         ref={(input)=>{this.emailInput = input}} style={inputStyles}/>
-                        <label>Password: </label>
+                        
                         <input type="password" id="password" placeholder="Password"
                         ref={(input)=>{this.passwordInput = input}} style={inputStyles}/>
                     
