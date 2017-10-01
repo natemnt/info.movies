@@ -1,13 +1,12 @@
 {
-  "main.css": "static/css/main.d63fc543.css",
-  "main.css.map": "static/css/main.d63fc543.css.map",
-  "main.js": "static/js/main.db13c4c2.js",
-  "main.js.map": "static/js/main.db13c4c2.js.map",
+  "main.css": "static/css/main.79238a8c.css",
+  "main.css.map": "static/css/main.79238a8c.css.map",
+  "main.js": "static/js/main.a59360e7.js",
+  "main.js.map": "static/js/main.a59360e7.js.map",
   "static\\media\\fontawesome-webfont.eot?v=4.7.0": "static/media/fontawesome-webfont.674f50d2.eot",
   "static\\media\\fontawesome-webfont.svg?v=4.7.0": "static/media/fontawesome-webfont.912ec66d.svg",
   "static\\media\\fontawesome-webfont.ttf?v=4.7.0": "static/media/fontawesome-webfont.b06871f2.ttf",
   "static\\media\\fontawesome-webfont.woff2?v=4.7.0": "static/media/fontawesome-webfont.af7ae505.woff2",
   "static\\media\\fontawesome-webfont.woff?v=4.7.0": "static/media/fontawesome-webfont.fee66e71.woff",
-  "static\\media\\info.movies.png": "static/media/info.movies.5f89ce69.png",
-  "static\\media\\modal-video.scss": "static/media/modal-video.9e885493.scss"
+  "static\\media\\info.movies.png": "static/media/info.movies.5f89ce69.png"
 }
