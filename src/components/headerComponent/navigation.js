@@ -28,6 +28,7 @@ class Nav extends Component{
                         
                                 <Link to="/">Home</Link>
                                 <Link to="/Newrelease">New Releases</Link>
+                                <Link to="/Playing_Now">Theatres Playing</Link>
                                 <Link to="/Search">Search</Link>
                             
                             {this.props.authenticated
@@ -56,7 +57,7 @@ class Nav extends Component{
   
                                 <Link to="/Newrelease"onClick={this.burgerToggle}>New Releases</Link>
                           
-                                   
+                                <Link to="/Playing_Now" onClick={this.burgerToggle}>Theatres Playing</Link>
                             
                                 <Link to="/Search" onClick={this.burgerToggle}>Search</Link>
                             

@@ -1,15 +1,6 @@
 import Rebase from 're-base';
 import * as firebase from 'firebase';
-/*var config = {
-    // Initialize Firebase
-      apiKey: "AIzaSyCmpgIoUQ6z0EHtcAPtSTNKjFOBWkwDAtM",
-      authDomain: "humber-admin-83115.firebaseapp.com",
-      databaseURL: "https://humber-admin-83115.firebaseio.com",
-      projectId: "humber-admin-83115",
-      storageBucket: "humber-admin-83115.appspot.com",
-      messagingSenderId: "353235675267"
-    
-  }*/
+
   const config = {
       // Initialize Firebase
       apiKey: process.env.REACT_APP_FIREBASE_KEY,

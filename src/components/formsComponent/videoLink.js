@@ -55,7 +55,7 @@ onClickVideo(){
         return (
             <div>
                 <ModalVideo channel='youtube' ref="playTrailer" isOpen={val} videoId={this.state.videoKey}/>
-                <button className="btn btn-primary trailer-btn" ref="trailer" onClick={this.onClickVideo}>View the trailer</button>
+                <button className="btn trailer-btn" ref="trailer" onClick={this.onClickVideo}>View the trailer</button>
                 
             </div>
         );   

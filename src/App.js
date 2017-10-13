@@ -12,6 +12,7 @@ import Footer from './components/footerComponent/footer';
 import Registration from './components/formsComponent/registrationForm';
 import Homepage from './components/pagesComponent/homePage';
 import Newrelease from './components/pagesComponent/newRelease';
+import Playingnow from './components/pagesComponent/playingNow';
 import Boxoffice from './components/pagesComponent/boxOffice';
 import Search from './components/pagesComponent/search';
 import Moviedetails from './components/pagesComponent/movieDetails';
@@ -56,7 +57,7 @@ class App extends Component {
      <div></div> 
     }
     const info = this.state.userInfo
-    console.log(info)
+    //console.log(info)
     if(this.state.loading === true){
       return(
         <div style={{textAlign:"center", position:"absolute",
@@ -80,6 +81,7 @@ class App extends Component {
           <Route exact path='/info.movies' component={Registration}/>
           <Route exact path='/logout' component={Logout}/>
           <Route exact path='/Newrelease' component={Newrelease}/>
+          <Route exact path='/Playing_Now' component={Playingnow}/>
           <Route exact path='/Boxoffice' component={Boxoffice}/>
           <Route exact path='/Search' component={Search}/>
           <Route exact path='/Moviedetails' component={Moviedetails}/>

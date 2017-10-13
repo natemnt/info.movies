@@ -6,14 +6,14 @@
 }
 
 .content{
-  padding-bottom: 100px;
+  padding: 100px 0 100px 0;
 }
 header{
     position: relative;
     display: block;
     width: 100%;
-    background: $white;
-   color:$black;
+    background: $black;
+    color:$black;
     height: 120px;
 
     .logo{
@@ -31,6 +31,7 @@ header{
         position: absolute;
         top: 100%; 
         right:15px;
+       
         
         @include translateY(-50%);
         
@@ -51,6 +52,9 @@ header{
         }
       }
 
+      @media(min-width:$bp-large){
+       // z-index: 100000;
+      }
     }
 
     .navNarrow{
@@ -77,8 +81,9 @@ header{
       nav{
         padding:1em;
         position: absolute;
-        top: 50%; 
-        right:15px;
+        top: 150px; 
+        right:0;
+        width:100%;
         .navWide{
           display:block;
 
@@ -116,14 +121,30 @@ header{
       background-color: $linkHover;
     }
   }
-  span{
-    padding:10px;
-    margin-top:20px;
-    cursor: pointer;
-    display: inline-block;
-  }
+    span{
+      padding:10px;
+      margin-top:20px;
+      cursor: pointer;
+      display: inline-block;
+    }
  
   }
+  .info_movies__card{
+    background-color: $white;
+    height:200px;
+    margin: 0 20px 20px 0;
+   
+    .info_movies__showtime_btn{
+      background-color:$linkHover;
+      height:50px;
+      color:$white;
+      
+    }
+    .info_movies__theatres{
+      display: none;
+    }
+  }
+  
   }
 
 
@@ -195,7 +216,10 @@ footer{
      }
 }/*end of movie article styling*/
 
-
+.trailer-btn{
+  background-color: $linkHover;
+  color:$white;
+}
 .top-buffer{
   margin-top: 20px;
 }
@@ -218,3 +242,19 @@ hr{
   display:block;
 }
 
+.Modal{
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  background-color:$white;
+}
+.Overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color:$backdrop-color;
+}

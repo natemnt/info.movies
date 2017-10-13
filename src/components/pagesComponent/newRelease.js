@@ -11,7 +11,7 @@ class Newrelease extends Component {
   }
 
   componentWillMount(){
-    var url ="https://api.themoviedb.org/3/movie/now_playing?api_key=3aba18b4b741b327b46e5373e09a48f7&language=en-US&page=1";
+    const url ="https://api.themoviedb.org/3/movie/now_playing?api_key=3aba18b4b741b327b46e5373e09a48f7&language=en-US&page=1";
     Request.get(url).then((response) => {
       this.setState({
         movies: response.body.results 
@@ -23,7 +23,6 @@ class Newrelease extends Component {
 
 
   render() {
-
     var movies = _.map(this.state.movies,(movies) => {
       return  <article key={movies.id} className="col-lg-4 col-md-4 col-sm-4 col-xs-6 col-xxs-12 animate-box info_movie__article">
                 <div>

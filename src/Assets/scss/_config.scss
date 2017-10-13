@@ -11,6 +11,7 @@ $darkBlue:#2c3e50;
 $tint:#f9f9ea;
 $light:#f1f1f1;
 $linkHover:#FA8072;
+$backdrop-color: rgba(0, 0, 0, .5);
 
 /*Breakpoints*/
 $bp-extrasmall: 15em; /*240px*/
@@ -75,7 +76,6 @@ a{
         max-width: $bp-homer;
     }
 }
-nav{
-    z-index: 100000;
-}
+
+
 
