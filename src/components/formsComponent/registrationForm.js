@@ -116,7 +116,7 @@ class Registration extends Component{
                         <input type="password" id="password" placeholder="Password"
                         ref={(input)=>{this.passwordInput = input}} style={inputStyles}/>
                     
-                        <input className="btn" id="login" value="Login" 
+                        <input className="btn info_movies__login_btn" id="login" value="Login" 
                             type="submit" style={{width:100+"%"}}/>
                 
                         

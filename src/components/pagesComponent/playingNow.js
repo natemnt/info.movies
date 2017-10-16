@@ -6,10 +6,12 @@ import Modal from 'react-modal';
 Modal.setAppElement('#root')
 class Playingnow extends Component{
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state={
-            showModal:false
+            showModal:false,
+            apiKeyImg:'?api_key=wsrs7xunzk7dhmwxc8xjt2dg',
+            venues:''
         }
 
         this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -27,7 +29,7 @@ class Playingnow extends Component{
             this.setState({
                 films:response.body
             })
-            console.log(response.body)
+            //console.log(response.body)
         })
         
     }
@@ -47,38 +49,53 @@ class Playingnow extends Component{
 
         }else{
             var filmsVenues = this.state.films
+            //function to retrieve index of an array
+            function myIndex(collection,target){  
+                for(var val=0; val<collection.length; val++){
+                    if(collection[val] === target){
+                        return val;
+                    }
+                }
+                return -1;
+            }//end of function
+            /*You have to check index on button click if they match, if true then display appropriate venues and times for films */
 
-            var movies = _.map(filmsVenues,(movies)=>{
+
+            var shows = _.map(filmsVenues,(shows,e)=>{
+                //console.log(filmsVenues.length)
+                var theatres = shows.showtimes
+                
+                    var venIndex = theatres.length - 1;
+                     var venues=theatres[venIndex]
+                     //console.log(theatres.length)
+                     //console.log(myIndex(filmsVenues,shows))
+                
+                return  <tr key={e}>
+                            <td>
+                            {venues.theatre.name}
+                            </td>
+                            <td>{venues.dateTime}</td>
+                        </tr>
+            })
+            
+
+            var movies = _.map(filmsVenues,(movies,k)=>{
                 //console.log(movies.topCast[])
-                var castNames=movies.topCast;
-                {
-                var venues = _.map(movies.showtimes,(venues,i)=>{
-                    //console.log(venues)
-                    return( 
-                    <Modal
-                        isOpen={this.state.showModal}
-                        contentLabel="Now Playing"
-                        onRequestClose={this.handleCloseModal}
-                        className="Modal"
-                        overlayClassName="Overlay"
-                        key={i}
-                    >
-                        <p>{venues.theatre.name}</p>
-                        <button onClick={this.handleCloseModal}>
-                            Close</button>
-                    </Modal>
-                    )
-                })
-            }
-                return <span key={movies.tmsId} className="info_movies__card col-lg-3 col-md-3 col-sm-3 col-xs-4 col-xxs-4">
+                var castNames=movies.topCast.toString();
+                
+                
+                //console.log(movies.venues)
+            
+                return <span key={k} className="info_movies__card col-lg-3 col-md-3 col-sm-3 col-xs-4 col-xxs-4">
+                    
                     <p>{movies.title}</p>
-                    <div>Cast</div>
-                    {!castNames ? <div></div> : <div>{castNames}</div>}
+                    <h4>Cast</h4>
+                    {!castNames ? <div></div> : <div style={{fontSize:12+'px'}}>{castNames}</div>}
                     
                     <button className="btn info_movies__showtime_btn"
                             onClick={this.handleOpenModal}
                             >View Showtimes</button>
-                    <div>{venues}</div>
+                            
                 </span>
             })
 
@@ -89,6 +106,26 @@ class Playingnow extends Component{
                 <div>
                     {movies}
                 </div>
+                <Modal
+                        isOpen={this.state.showModal}
+                        contentLabel="Now Playing"
+                        onRequestClose={this.handleCloseModal}
+                        className="Modal"
+                        overlayClassName="Overlay"
+                    >
+                    <button onClick={this.handleCloseModal}>
+                            Close</button>
+                        <table className="table table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>Cinema</th><th>Date/Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {shows}
+                            </tbody>
+                        </table> 
+                    </Modal>
             </div>
         )
     }

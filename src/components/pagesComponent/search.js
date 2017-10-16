@@ -8,7 +8,8 @@ class Search extends Component {
 
   constructor(props){
       super(props);
-      this.state = {value: ''};
+      this.state = {value: '',
+                    movies:{}};
       this.focus = this.focus.bind(this);
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,9 +20,11 @@ class Search extends Component {
   }
 
   handleSubmit(event){
-      var url = 'https://api.themoviedb.org/3/search/movie?api_key=3aba18b4b741b327b46e5373e09a48f7&query='+this.state.value;
+      var url = 'https://api.themoviedb.org/3/search/movie?';
+      const apiKey = "api_key=3aba18b4b741b327b46e5373e09a48f7";
+      var userQuery = "&query="+this.state.value;
       
-      Request.get(url).then((response) => {
+      Request.get(url+apiKey+userQuery).then((response) => {
         this.setState({
             movies: response.body.results,
             
@@ -41,11 +44,30 @@ class Search extends Component {
 
 
   render() {
+        //console.log(this.state.movies);
+    var filteredMovies = !this.state.movies ? this.state.movies.filter((film)=>{
+            return film.title.indexOf(this.state.value) !== -1
+        }
+        
+    )
+    : ['none']/*This needs to be worked on */
 
-     var movies = _.map(this.state.movies, (movies) => {
-         return <li key={movies.id}><Link to={"/Moviedetails/?id="+movies.id}>{movies.title}</Link> : {movies.release_date}</li>
+     var movies = _.map(this.state.movies, (movies,i) => {
+         return <li key={i}>
+                    <Link to={"/Moviedetails/?id="+movies.id}>
+                    {movies.title}</Link> : {movies.release_date}
+                </li>
      });
+     
 
+     /*And this as well */
+     var filteredSearch = _.map(filteredMovies,(results,j)=>{
+       
+         return <p key={j}>
+                    {results.title}
+             </p>
+     })
+    
     return (
      <div className="container">
 
@@ -63,11 +85,11 @@ class Search extends Component {
                     onChange={this.handleChange} className="form-control" onClick={this.focus}/>
             </div>
          </div>
-         <div className="top-buffer"></div>
-         <div>
-            <input type="submit" className="btn btn-primary" value="Search"/>
-         </div>
+         
+            <input type="submit" className="btn info_movies__search_btn" value="Search"/>
+         
      </form>
+        <div>{filteredSearch}</div>
         <ul>{movies}</ul>
     </div>
         

@@ -33,22 +33,26 @@ class Homepage extends Component {
   /*Render function*/
   render() {
     //console.log(this.state.movies);
-    var movies = _.map(this.state.movies, (movies) => {
-      return  <article key={movies.id} 
-                      className="col-lg-4 col-md-4 col-sm-4 col-xs-6 col-xxs-12 animate-box info_movie__article">
-                  <figure>
+    var movies = _.map(this.state.movies, (movies,i) => {
+      return  <div key={i}
+                      className="info_movie__article">                
                   <Link to={"/Moviedetails/?id="+movies.id} 
-                        className="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xxs-12 offset-lg-1 info_movies__poster">
+                        className="offset-lg-1 info_movies__poster">
                   <img src={'http://image.tmdb.org/t/p/w185'+movies.poster_path} 
-                  alt="placeholder" className="img-responsive"/></Link>
-                  <div className="col-lg-5 col-md-5 col-sm-5 info_movies__synopsis_container">
-                     
-                  </div>
-                  </figure>
+                  alt="placeholder" className="img-responsive info_movies_img"/></Link> 
+
                   
-                   
-              </article>
-    
+                    <div>
+                    <Link to={"/Moviedetails/?id="+movies.id} 
+                        style={{fontSize:13+"px"}}
+                        className="info_movies__text">{movies.title}</Link>
+                    </div>
+                    <div className="info_movies__release_date"
+                          style={{fontSize:13+"px"}}>
+                    {movies.release_date}
+                    </div>
+                  
+              </div>
     });
     return (
      <div className="container">

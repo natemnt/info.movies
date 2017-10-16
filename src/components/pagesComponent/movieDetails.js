@@ -49,25 +49,26 @@ class Moviedetails extends Component {
         //console.log(this.state.films);
         var idKey = this.state.films.id;
 
-        var movieCompanies = _.map(movieDetails.production_companies,(movieCompanies) =>{
-            return <span key={movieCompanies.id}>{movieCompanies.name} </span>
+        var movieCompanies = _.map(movieDetails.production_companies,(movieCompanies,i) =>{
+            return <span key={i}>{movieCompanies.name} </span>
         });
             
-        var movieCast = _.map(movieDetails.credits.cast,(movieCast) =>{
+        var movieCast = _.map(movieDetails.credits.cast,(movieCast,j) =>{
             if(movieCast.profile_path === null){
-                return(<div className="col-lg-3 col-md-6 col-sm-6 col-xs-12 col-xxs-12">
+                return(<div key={j} className="col-lg-3 col-md-6 col-sm-6 col-xs-12 col-xxs-12">
                 <Link to={'/Cast/?id='+movieCast.id}><div key={movieCast.id}>{movieCast.name}</div></Link>
                 <img src={require('../../Assets/images/profile.png')}
-                    alt="a film cast member" className="img-responsive"/>
+                    alt="a film cast member" className="img-responsive" 
+                    style={{width:150+'px',height:230+'px'}}/>
             </div>
                 
                 )
             }
             //console.log(movieCast)
-            return (<div className="col-lg-3 col-md-6 col-sm-6 col-xs-12 col-xxs-12">
+            return (<div key={j} className="col-lg-3 col-md-6 col-sm-6 col-xs-12 col-xxs-12">
                     <Link to={'/Cast/?id='+movieCast.id}><div key={movieCast.id}>{movieCast.name}</div></Link>
                    
-                <img key={movieCast.cast_id} src={'http://image.tmdb.org/t/p/w185'+movieCast.profile_path} 
+                <img src={'http://image.tmdb.org/t/p/w185'+movieCast.profile_path} 
                     alt="a film cast member" className="img-responsive"/>
                 </div>
             )
@@ -89,7 +90,7 @@ class Moviedetails extends Component {
                 <img src={'http://image.tmdb.org/t/p/w185'+movieDetails.poster_path} 
                     alt="movie poster" className="img-responsive"/>
             </figure>
-        
+            <div style={{marginTop:5+'px'}}></div>
                 <Videolinks movieId={idKey}/>
                 
             <h3 className="fh5co-article-title animate-box">{movieDetails.original_title}</h3>

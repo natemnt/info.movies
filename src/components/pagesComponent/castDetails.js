@@ -41,10 +41,10 @@ class Cast extends Component{
             castDetails.gender === 1 ? gender = "Female" : gender = "Male"
         }
 
-        var movieCredits = _.map(castDetails.movie_credits.cast,(movieCredits) => {
+        var movieCredits = _.map(castDetails.movie_credits.cast,(movieCredits, c) => {
                         //console.log(movieCredits)
                         return(
-                                <tr>
+                                <tr key={c}>
                                     <td>{movieCredits.release_date}</td>
                                     <td><Link to={'/Moviedetails/?id='+movieCredits.id}>{movieCredits.original_title}</Link></td>
                                     <td>{movieCredits.character}</td>

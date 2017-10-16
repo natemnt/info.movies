@@ -131,8 +131,9 @@ header{
   }
   .info_movies__card{
     background-color: $white;
-    height:200px;
+    height:100%;
     margin: 0 20px 20px 0;
+    padding:10px 0 10px 10px;
    
     .info_movies__showtime_btn{
       background-color:$linkHover;
@@ -140,9 +141,19 @@ header{
       color:$white;
       
     }
+    
     .info_movies__theatres{
       display: none;
-    }
+    } 
+  }
+  .info_movies__login_btn{
+    background-color:$linkHover;
+    color:$white;
+  }
+  .info_movies__search_btn{
+    background-color:$linkHover;
+    height:50px;
+    color:$white;
   }
   
   }
@@ -171,8 +182,19 @@ footer{
 }
 /*Movie article styling*/
 .info_movie__article{
-    margin-top:20px;
+    margin:0 40px 20px  0;
+    padding:10px 0 0 0;
     height:100%;
+    display:inline-block;
+    width: 170px;
+    text-align: center;
+
+    &:hover{
+      background-color:$white;
+      border-radius:10px;
+      box-shadow: 8px 8px 5px grey;
+      
+    }
 
    .info_movies__title{
        margin-top:-10px;
@@ -203,11 +225,20 @@ footer{
             display: block;
         }
     }
-    .info_movies__synopsis_container{
-        overflow: hidden;
-    }
     .info_movies__poster{
         margin-top:13px;
+        
+        max-height: 300px;
+        .info_movies_img{
+          width:150px;
+          height: 230px;
+          margin:0 auto;
+          
+        }
+        .info_movies__text{
+          align-content: center;
+        
+        }
     }
 
     @media(min-width){
@@ -219,6 +250,7 @@ footer{
 .trailer-btn{
   background-color: $linkHover;
   color:$white;
+  width:185px;
 }
 .top-buffer{
   margin-top: 20px;
@@ -249,6 +281,8 @@ hr{
   right: 40px;
   bottom: 40px;
   background-color:$white;
+  height: 100%;
+  overflow-y: auto;
 }
 .Overlay{
   position: fixed;
