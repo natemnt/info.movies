@@ -6,7 +6,9 @@ class Nav extends Component{
     constructor(props){
         super(props);
         this.state={}
-        //console.log(this.props)
+        
+        this.openSlideMenu = this.openSlideMenu.bind(this);
+        this.closeSlideMenu = this.closeSlideMenu.bind(this);
     }
 
     burgerToggle(){
@@ -18,20 +20,61 @@ class Nav extends Component{
         }
     }
 
+    openSlideMenu(){
+        document.getElementById('nav_bar__side_menu').style.width = '250px';  
+    }
+
+    closeSlideMenu(){
+        document.getElementById('nav_bar__side_menu').style.width = '0';  
+    }    
+
     render(){
 
         return(
-            
-            <nav>
-                <div className="navWide">
-                    <div className="wideDiv">
-                        
-                                <Link to="/">Home</Link>
-                                <Link to="/Newrelease">New Releases</Link>
-                                <Link to="/Playing_Now">Showtimes</Link>
-                                <Link to="/Search">Search</Link>
+        <div className="header_divider">
+            <nav className="nav_bar">
+                <span className="open_slide">
+                    <a href="#" id="open_slide_svg" onClick={this.openSlideMenu}>
+                        <svg width="30" height="30">
+                            <path d="M0,5 30,5" stroke="#000"
+                                strokeWidth="5" className="open_slide_stroke"/>
+                            <path d="M0,14 30,14" stroke="#000"
+                                strokeWidth="5" className="open_slide_stroke"/>
+                            <path d="M0,23 30,23" stroke="#000"
+                                strokeWidth="5" className="open_slide_stroke"/>
+                        </svg>
+                    </a>
+                </span>
+                <ul className="nav_bar_list">
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/Newrelease">New Releases</Link></li>
+                    <li><Link to="/Playing_Now">Showtimes</Link></li>
+                    <li> {this.props.authenticated
+                            ? (<span>
+                                    <Link to="/dashboard">
+                                    <span className="glyphicon glyphicon-user"></span>
+                                    </Link>
+                                    <Link to="/logout" aria-label="Log out">
+                                    <span className="glyphicon glyphicon-log-out"></span>
+                                    </Link>
+                                </span>
+                            )
+                            : (
                             
-                            {this.props.authenticated
+                                <Link to="/info.movies">My account</Link>
+                           
+                            )}</li>
+                </ul>
+                
+            </nav>
+
+            <div id="nav_bar__side_menu" className="nav_bar__side_nav">
+                <a href="#" className="nav_bar__btn_close"
+                    onClick={this.closeSlideMenu}>&times;</a>
+                <Link to="/">Home</Link>
+                <Link to="/Newrelease">New Releases</Link>
+                <Link to="/Playing_Now">Showtimes</Link>
+                {this.props.authenticated
                             ? (<span>
                                     <Link to="/dashboard">
                                     <span className="glyphicon glyphicon-user"></span>
@@ -46,38 +89,10 @@ class Nav extends Component{
                                 <Link to="/info.movies">My account</Link>
                            
                             )}
-                        
-                    </div>
-                </div>
-                <div className="navNarrow">
-                    <i className="fa fa-bars fa-2x" onClick={this.burgerToggle}></i>
-                        <div className="narrowLinks">
-                        
-                                <Link to="/" onClick={this.burgerToggle}>Home</Link>
-  
-                                <Link to="/Newrelease"onClick={this.burgerToggle}>New Releases</Link>
-                          
-                                <Link to="/Playing_Now" onClick={this.burgerToggle}>Showtimes</Link>
-                            
-                                <Link to="/Search" onClick={this.burgerToggle}>Search</Link>
-                            
-                            {this.props.authenticated
-                            ? ( <span>
-                                <Link to="/dashboard" onClick={this.burgerToggle}>
-                                <span className="glyphicon glyphicon-user"></span>
-                                </Link>
-                                <Link to="/logout" aria-label="Log out">
-                                <span className="glyphicon glyphicon-log-out"
-                                onClick={this.burgerToggle}></span>
-                                </Link>
-                                </span>
-                            )
-                            : (
-                                <Link to="/info.movies" onClick={this.burgerToggle}>My account</Link>
-                            )}
-                        </div>
-                    </div>
-            </nav>
+            </div>
+        </div>
+            
+            
         )
     }
 }

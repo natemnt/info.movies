@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Searchform from '../formsComponent/searchForm';
 import Nav from './navigation';
 
 class Header extends Component {
@@ -23,6 +23,7 @@ class Header extends Component {
             <img src={require("../../Assets/images/info.movies.png")} alt="The info.movies logo" className="info_movies__logo"/>
           </div>
         <Nav authenticated={this.props.authenticated}/>
+        <Searchform/>
           
       </header>
     );

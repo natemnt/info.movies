@@ -12,97 +12,15 @@ header{
     position: relative;
     display: block;
     width: 100%;
-    background: $black;
+    background: $white;
     color:$black;
     height: 120px;
 
     .logo{
         position: absolute;
-        top: 50%; left:15px;
+        top: 30%; left:15px;
         @include translateY(-50%);
-    }
-
-
-
-    nav{
-        background-color: $white;
-        overflow: hidden;
-        padding: 1em; 
-        position: absolute;
-        top: 100%; 
-        right:15px;
-       
-        
-        @include translateY(-50%);
-        
-      .navWide{
-        display:none;
-        margin:0 auto;
-
-        a{
-          text-decoration: none;
-          display:inline-block;
-          padding:0 1em;
-
-          &:hover{
-            color:$linkHover;
-            text-decoration: none;
-            @include transition(.1s ease-in-out);
-        }
-        }
-      }
-
-      @media(min-width:$bp-large){
-       // z-index: 100000;
-      }
-    }
-
-    .navNarrow{
-      i{
-        float: right;
-        cursor: pointer;
-        color:$black;
-      }
-
-      .narrowLinks{
-        display:none;
-
-        a{
-          display: block;
-          float:right;
-          clear:right;
-          color:$black;
-          padding:0.5em 0;
-        }
-      }
-    }
-
-    @media(min-width:$bp-large){
-      nav{
-        padding:1em;
-        position: absolute;
-        top: 150px; 
-        right:0;
-        width:100%;
-        .navWide{
-          display:block;
-
-          a{
-            color:$black;
-          }
-         
-        }
-        .navNarrow{
-          display:none;
-          i{
-            float: right;
-            cursor: pointer;
-            color:$black;
-          }
-        }
-      }
-    }
-       
+    }   
 }
 .container{
   .info_movies__user_movies{
@@ -160,12 +78,11 @@ header{
   }
   .info_movies__search_btn{
     background-color:$linkHover;
-    height:50px;
     color:$white;
+    border-radius:0;
   }
   
   }
-
 
 footer{
     background:$black;
@@ -307,3 +224,113 @@ hr{
 .check_text{
   font-size:12px;
 }
+.header_divider{
+  border-bottom:2px solid $linkHover;
+}
+
+/*new styling*/
+/*navigation styling*/
+.nav_bar{
+  background-color: white;
+  overflow: hidden;
+  height:63px;
+  padding-right:calc(5% + 18px);
+  padding-left: calc(5% + 18px);
+}
+
+.nav_bar a{
+  float:right;
+  height:100%;
+  /*display: block;*/
+  color:black;
+  text-align: center;
+  padding: 16px 16px 0 16px;
+  text-decoration: none;
+  font-size:17px;
+}
+
+.nav_bar ul{
+  margin: 8px 0 0 0;
+  list-style: none;
+  float:right;
+  height: 100%;
+}
+.nav_bar_list li{
+  float:left;
+  height: 100%;
+}
+
+.nav_bar a:hover{
+  color:$linkHover;
+}
+
+.nav_bar__side_nav{
+  height:100%;
+  width:0;
+  position: fixed;
+  z-index: 1;
+  top:0;
+  right:0;
+  background-color: #111;
+  opacity:0.9;
+  overflow-x:hidden;
+  padding-top:60px;
+  transition:0.5s;
+}
+
+.nav_bar__side_nav a{
+  padding: 10px 10px 10px 50px;
+  text-decoration: none;
+  font-size:22px;
+  display: block;
+  transition: 0.3s;
+  color:white;
+}
+
+.nav_bar__side_nav a:hover{
+  color:#fff;
+
+}
+
+.nav_bar__side_nav .nav_bar__btn_close{
+  position:absolute;
+  top:0;
+  right:22px;
+  font-size:36px;
+  margin-left:50px;
+}
+.open_slide #open_slide_svg:hover{
+  background-color: white !important;
+}
+
+#main{
+  padding: 20px;
+  overflow: hidden;
+  width:100%;
+  text-align: center;
+}
+
+@media(max-width:$bp-large){
+  .nav_bar_list{
+    display:none;
+  }
+  #main{
+    padding: 20px;
+    overflow: hidden;
+    width:90%;
+    text-align: center;
+  }
+}
+
+@media(min-width:$bp-large){
+  .open_slide{
+    display:none;
+  }
+}
+.info_movies_query, .info_movies_postcode{
+  margin:10px 20px 10px 0;
+  font-size:13px;
+  width:30%;
+  height: 30px;
+}
+/*End of navigation styling*/
