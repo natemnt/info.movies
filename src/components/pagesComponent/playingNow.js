@@ -4,7 +4,9 @@ import _ from 'lodash';
 import Modal from 'react-modal';
 
 Modal.setAppElement('#root')
-class Playingnow extends Component{
+
+
+export default class Playingnow extends Component{
 
     constructor(props){
         super(props);
@@ -31,17 +33,15 @@ class Playingnow extends Component{
             })
             //console.log(response.body)
         })
-        
+       
     }
-
     handleOpenModal(){
         this.setState({showModal:true})
     }
-
     handleCloseModal(){
         this.setState({showModal:false})
     }
-
+    
     render(){
 
         if(!this.state.films){
@@ -63,58 +63,60 @@ class Playingnow extends Component{
 
             var shows = _.map(filmsVenues,(shows,e)=>{
                 //console.log(filmsVenues.length)
-                var theatres = shows.showtimes
+
+                var filmShow
+                var showTime
+                for(var i =0; i<shows.showtimes.length; i++){
+
+                    filmShow= shows.showtimes[i].theatre.name;
+                    showTime= shows.showtimes[i].dateTime;
+
+                }
                 
-                    var venIndex = theatres.length - 1;
-                     var venues=theatres[venIndex]
+               // var theatres = shows.showtimes
+                
+                    //var venIndex = theatres.length - 1;
+                    // var venues=theatres[venIndex]
                      //console.log(theatres.length)
                      //console.log(myIndex(filmsVenues,shows))
                 
                 return  <tr key={e}>
                             <td>
-                            {venues.theatre.name}
+                            {filmShow}
                             </td>
-                            <td>{venues.dateTime}</td>
+                            <td>{showTime}</td>
                         </tr>
             })
-            
-
-            var movies = _.map(filmsVenues,(movies,k)=>{
-                //console.log(movies.topCast[])
-                var castNames=movies.topCast.toString();
-                
-                
-                //console.log(movies.venues)
-            
-                return <span key={k} className="info_movies__card col-lg-3 col-md-3 col-sm-3 col-xs-4 col-xxs-4">
-                    
-                    <p>{movies.title}</p>
-                    <h4>Cast</h4>
-                    {!castNames ? <div></div> : <div style={{fontSize:12+'px'}}>{castNames}</div>}
-                    
-                    <button className="btn info_movies__showtime_btn"
-                            onClick={this.handleOpenModal}
-                            >View Showtimes</button>
-                            
-                </span>
-            })
-
-           
+               
         }
         return(
             <div className="container">
-                <div>
-                    {movies}
+                <div>{filmsVenues.map((item,key)=>{
+                    var castNames=item.topCast.toString();
+                    
+                    return(
+                        <span key={key} className="info_movies__card col-lg-3 col-md-3 col-sm-3 col-xs-4 col-xxs-4">
+                        
+                        <p>{item.title}</p>
+                        <h4>Cast</h4>
+                        {!castNames ? <div></div> : <div style={{fontSize:12+'px'}}>{castNames}</div>}
+                        
+                        <button className="btn info_movies__showtime_btn"
+                                onClick={this.handleOpenModal}
+                                >View Showtimes</button>
+                                
+                                
+                    </span>
+                    )
+                })}
                 </div>
                 <Modal
                         isOpen={this.state.showModal}
                         contentLabel="Now Playing"
                         onRequestClose={this.handleCloseModal}
                         className="Modal"
-                        overlayClassName="Overlay"
-                    >
-                    <button onClick={this.handleCloseModal}>
-                            Close</button>
+                        overlayClassName="Overlay">
+                    <button onClick={this.handleCloseModal}>Close</button>
                         <table className="table table-responsive">
                             <thead>
                                 <tr>
@@ -125,10 +127,11 @@ class Playingnow extends Component{
                                 {shows}
                             </tbody>
                         </table> 
-                    </Modal>
+                </Modal>
             </div>
         )
     }
 }
 
-export default Playingnow;
+ 
+

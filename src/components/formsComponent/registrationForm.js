@@ -7,11 +7,12 @@ import WarningM from '../messageComponent/warningMessage';
 const registrationStyles = {
     width: "90%",
     maxWidth: "315px",
+    height:"400px",
     margin: "20px auto",
     borderRadius: "5px",
     padding: "10px",
     border: "1px solid #ddd",
-    backgroundColor: "#d3d3d3"
+    backgroundColor: "#ffffff"
     
 }
 
@@ -24,7 +25,6 @@ const inputStyles ={
 const infoBox ={
     marginBotton: "10px",
     marginTop:"10px",
-    backgroundColor:"#A9A9A9",
     padding:"10px"
 }
 class Registration extends Component{
@@ -98,29 +98,35 @@ class Registration extends Component{
                             
                             {/*login form*/}
                        <div style={registrationStyles}>
-                        <button className="btn btn-primary" id="facebookLogin" 
-                        onClick={()=> {this.authWithFacebook()}}
-                        style={{width:100+'%'}}>
-                        Log In with Facebook</button>
+                        
                         
                         <form onSubmit={(event) => {this.authWithEmailPassword(event)}} 
                                 ref={(form) => {this.loginForm = form}}
                                 style={{width:100+'%'}}>
-                        <div style={infoBox} className="fa fa-info-circle">
-                            An account will be created for new users
+                        <div style={infoBox}>
+                            <p>Already a member?</p>
+                            <p>Sign in to your account</p>
                         </div>
                             
-                        <input type="text" id="email" placeholder="Email" 
-                        ref={(input)=>{this.emailInput = input}} style={inputStyles}/>
+                        <input type="text" id="email" placeholder="Email"
+                                className="form-control" 
+                                ref={(input)=>{this.emailInput = input}} style={inputStyles}/>
                         
                         <input type="password" id="password" placeholder="Password"
-                        ref={(input)=>{this.passwordInput = input}} style={inputStyles}/>
-                    
-                        <input className="btn info_movies__login_btn" id="login" value="Login" 
-                            type="submit" style={{width:100+"%"}}/>
-                
+                                className="form-control"
+                                ref={(input)=>{this.passwordInput = input}} style={inputStyles}/>
+                    <div>
+                        <input type="checkbox" name="rememberme" 
+                                value="rememberme" className="info_movies_checkbox"/>Remember Me
+                        <input className="btn info_movies__login_btn" id="login" value="Sign In" 
+                            type="submit" style={{width:30+"%",marginLeft:60+'px', marginTop:30+'px'}}/>
+                    </div>
                         
                         </form>
+                        <button className="btn btn-primary" id="facebookLogin" 
+                        onClick={()=> {this.authWithFacebook()}}
+                        style={{width:100+'%'}}>
+                        Log In with Facebook</button>
                         </div>
                         
                     </div>
