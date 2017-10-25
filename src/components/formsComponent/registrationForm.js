@@ -115,11 +115,11 @@ class Registration extends Component{
                         <input type="password" id="password" placeholder="Password"
                                 className="form-control"
                                 ref={(input)=>{this.passwordInput = input}} style={inputStyles}/>
-                    <div>
+                    <div className="info_movies_signin_check">
                         <input type="checkbox" name="rememberme" 
-                                value="rememberme" className="info_movies_checkbox"/>Remember Me
+                                value="rememberme" className="info_movies_checkbox"/><span className="check_text">Remember Me</span>
                         <input className="btn info_movies__login_btn" id="login" value="Sign In" 
-                            type="submit" style={{width:30+"%",marginLeft:60+'px', marginTop:30+'px'}}/>
+                            type="submit"/>
                     </div>
                         
                         </form>
