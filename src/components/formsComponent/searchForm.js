@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import Request from 'superagent';
+//import Request from 'superagent';
 import {Redirect} from 'react-router';
 
 export default class Searchform extends Component{
@@ -29,7 +29,7 @@ export default class Searchform extends Component{
         event.preventDefault();
         console.log('submit');
         var userQuery = this.state.value;
-        const userPostcode = this.refs.userPostcode.value;
+        //const userPostcode = this.refs.userPostcode.value;
         //console.log(userPostcode);
           this.setState({
               movies: userQuery,

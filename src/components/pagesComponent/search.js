@@ -15,12 +15,12 @@ class Search extends Component {
 
      //console.log(this.props.location)
      var {search} = this.props.location;
-     var search = search.substring(8);
-     console.log(search)
+     var userSearch = search.substring(8);
+     //console.log(search)
 
     var url = 'https://api.themoviedb.org/3/search/movie?';
     const apiKey = "api_key=3aba18b4b741b327b46e5373e09a48f7";
-    var userQuery = "&query="+search;
+    var userQuery = "&query="+userSearch;
     
     Request.get(url+apiKey+userQuery).then((response) => {
       this.setState({

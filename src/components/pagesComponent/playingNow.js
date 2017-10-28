@@ -45,19 +45,19 @@ export default class Playingnow extends Component{
     render(){
 
         if(!this.state.films){
-            return <div></div>
+             return <div></div>
 
         }else{
-            var filmsVenues = this.state.films
+            var filmsVenues = this.state.films;
             //function to retrieve index of an array
-            function myIndex(collection,target){  
+            /*function myIndex(collection,target){  
                 for(var val=0; val<collection.length; val++){
                     if(collection[val] === target){
                         return val;
                     }
                 }
                 return -1;
-            }//end of function
+            }*/ //end of function
             /*You have to check index on button click if they match, if true then display appropriate venues and times for films */
 
 

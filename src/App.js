@@ -54,9 +54,9 @@ class App extends Component {
 
   render() {
     if (this.state.userInfo == null){
-     <div></div> 
+        <div></div> 
     }
-    const info = this.state.userInfo
+    //const info = this.state.userInfo
     //console.log(info)
     if(this.state.loading === true){
       return(

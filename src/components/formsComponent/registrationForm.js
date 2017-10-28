@@ -1,14 +1,13 @@
 import React,{Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import {app, facebookProvider} from '../../base';
-import ErrorM from '../messageComponent/errorMessage';
+/*import ErrorM from '../messageComponent/errorMessage';*/
 import WarningM from '../messageComponent/warningMessage';
 import {FormErrors} from '../messageComponent/formErrors';
 
 const registrationStyles = {
     width: "90%",
     maxWidth: "315px",
-    height:"400px",
     margin: "20px auto",
     borderRadius: "5px",
     padding: "10px",
@@ -144,16 +143,15 @@ class Registration extends Component{
         //console.log(this.state.formValid)
         console.log(this.state.errorMessage)
         if (this.state.redirect === true){
-           {/*} return <Redirect to='/'/>{*/}
+            return <Redirect to='/'/>
         }
                 return(
                     <div className="container">
                         
-                        <FormErrors formErrors={this.state.formErrors}/> 
+                        
                         <WarningM warningMessage={this.state.warningMessage}/>
-
-                        <ErrorM errorMessage={this.state.errorMessage}/>
-                            
+                      {/*}  <ErrorM errorMessage={this.state.errorMessage}/> {*/}
+                          
                             {/*login form*/}
                        <div style={registrationStyles}>
                         
@@ -178,6 +176,8 @@ class Registration extends Component{
                                 value={this.state.password}
                                 ref={(input)=>{this.passwordInput = input}} style={inputStyles}
                                 onChange={(e)=> this.handleChange(e)}/>
+
+                                <FormErrors formErrors={this.state.formErrors}/> 
                                 
                     <div className="info_movies_signin_check">
                         <input type="checkbox" name="rememberme" 
