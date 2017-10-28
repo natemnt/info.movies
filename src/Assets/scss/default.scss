@@ -6,7 +6,7 @@
 }
 
 .content{
-  padding: 100px 0 100px 0;
+  padding: 50px 0 100px 0;
 }
 header{
     position: relative;
@@ -115,9 +115,14 @@ footer{
     text-align: center;
 
     &:hover{
-      background-color:$white;
+      background-color:$linkHover;
       border-radius:10px;
       box-shadow: 8px 8px 5px grey;
+      transition: 0.5s;
+      color:$white;
+      a{
+        color:$white;
+      }
       
     }
 
@@ -195,9 +200,11 @@ hr{
   align-content: center;
 }
 .hide{display:none;}
+
 .show{
   display:block;
 }
+
 
 .Modal{
   position: absolute;
@@ -220,16 +227,21 @@ hr{
 #facebookLogin{
   margin:40px 0 0 0; 
 }
-
+.info_movies_search_page, .info_movies_castDetails,
+.info_movies_homepage,.info_movies_newRelease{
+  background-color:$white;
+  padding:10px 20px 0 20px;
+}
 .check_text{
   font-size:12px;
 }
-.header_divider{
-  border-bottom:2px solid $linkHover;
-}
+
 
 /*new styling*/
 /*navigation styling*/
+.header_divider{
+  border-bottom:2px solid $linkHover;
+}
 .nav_bar{
   background-color: white;
   overflow: hidden;

@@ -52,11 +52,13 @@ class Newrelease extends Component {
     })
     return (
      <div className="container">
-       <h1>
-            Playing in Theatres
-        </h1>
-       <div className="row">
-        {movies}
+       <div className="info_movies_newRelease">
+          <h1>
+              Playing in Theatres
+          </h1>
+          
+            {movies}
+        
         </div>
       </div>
     );

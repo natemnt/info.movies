@@ -6,12 +6,13 @@ function WarningM(props){
         show:'show'
     }
     if(props.warningMessage === ''){
-    return <span className={"alert alert-warning fade in info_movies__warning "+classes.hide}>
-    {props.warningMessage}
-</span>}else{
-    return <span className={"alert alert-warning fade in info_movies__warning "+classes.show}>
-    {props.warningMessage}
-</span>
+        return <span className={"alert alert-warning fade in info_movies__warning "+classes.hide}>
+                    {props.warningMessage}
+               </span>
+        }else{
+        return <span className={"alert alert-warning fade in info_movies__warning "+classes.show}>
+                    {props.warningMessage}
+               </span>
 }
 }
 

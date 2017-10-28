@@ -16,6 +16,7 @@ class Search extends Component {
      //console.log(this.props.location)
      var {search} = this.props.location;
      var search = search.substring(8);
+     console.log(search)
 
     var url = 'https://api.themoviedb.org/3/search/movie?';
     const apiKey = "api_key=3aba18b4b741b327b46e5373e09a48f7";
@@ -40,14 +41,15 @@ class Search extends Component {
      });
     return (
      <div className="container">
+         <div className="info_movies_search_page">
+            <h1>
+                Search results
+            </h1>
 
-        <h1>
-            Search results
-        </h1>
-
-        
-         <div>
-            <ul>{movies}</ul>
+            
+            <div>
+                <ul>{movies}</ul>
+            </div>
         </div>
         
     </div>

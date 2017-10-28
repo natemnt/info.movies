@@ -56,12 +56,13 @@ class Homepage extends Component {
     });
     return (
      <div className="container">
+       <div className="info_movies_homepage">
         <h1>
             Up Coming Films
         </h1>
           {movies}
-          
-         </div>
+      </div>
+    </div>
     );
   }
 }
