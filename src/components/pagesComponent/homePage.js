@@ -1,39 +1,24 @@
 import React, { Component } from 'react';
-import Request from 'superagent';
 import _ from 'lodash';
 import {Link} from 'react-router-dom';
-//import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as movieActions from '../../actions/movieActions'
+
 
 class Homepage extends Component {
 
   constructor(){
     super();
     this.state = {};
-  }
-
-  componentWillMount(){
-    var url ="https://api.themoviedb.org/3/movie/upcoming?api_key=3aba18b4b741b327b46e5373e09a48f7&language=en-US&page=1";
-    Request.get(url).then((response) => {
-      this.setState({
-        movies: response.body.results 
-      });
-      //console.log(this.state.movies);
-    });
-    
-  }
-
-  componentDidMount(){}
-
-  componentWillReceiveProps(nextProps){
 
   }
-  componentWillUpdate(nextProps, nextState){
 
-  }
   /*Render function*/
   render() {
-    //console.log(this.state.movies);
-    var movies = _.map(this.state.movies, (movies,i) => {
+
+    //console.log(this.props.movie);
+    var movies = _.map(this.props.movie, (movies,i) => {
       return  <div key={i}
                       className="info_movie__article">                
                   <Link to={"/Moviedetails/?id="+movies.id} 
@@ -67,4 +52,18 @@ class Homepage extends Component {
   }
 }
 
-export default Homepage;
+/*redux function that maps state to props */
+function mapStateToProps(state, ownProps){
+  return{
+      movie: state.movies
+  }
+}
+
+function mapDispatchToProps(dispatch){
+  return{
+      actions: bindActionCreators(movieActions, dispatch)
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Homepage)
+
+

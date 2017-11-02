@@ -41,7 +41,7 @@ class App extends Component {
         this.setState({authenticated:true,
                         loading:false,
                         userInfo:user})
-      console.log(user)
+      //console.log(user)
       }else{
         this.setState({authenticated:false, loading:false})
       }

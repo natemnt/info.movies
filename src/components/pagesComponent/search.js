@@ -1,44 +1,32 @@
 import React, {Component} from 'react';
-import Request from 'superagent';
-import _ from 'lodash';
-import {Link} from 'react-router-dom';
+//import Request from 'superagent';
+//import _ from 'lodash';
+//import {Link} from 'react-router-dom';
 
 
 class Search extends Component {
 
   constructor(props){
       super(props);
-      this.state = {movies:{}};
+      this.state = {};
+
+      console.log(props)
   }
 
-  componentWillMount(){
 
-     //console.log(this.props.location)
-     var {search} = this.props.location;
-     var userSearch = search.substring(8);
-     //console.log(search)
-
-    var url = 'https://api.themoviedb.org/3/search/movie?';
-    const apiKey = "api_key=3aba18b4b741b327b46e5373e09a48f7";
-    var userQuery = "&query="+userSearch;
-    
-    Request.get(url+apiKey+userQuery).then((response) => {
-      this.setState({
-          movies: response.body.results,
-          
-      });
-    //console.log(this.state.movies)
-    });
-  }
 
   render() {
+
+   // var {search} = this.props.location;
+   // var films = search.substring(8);
+
         //console.log(this.state.movies);
-     var movies = _.map(this.state.movies, (movies,i) => {
+    /* var movies = _.map(films, (movies,i) => {
          return <li key={i}>
                     <Link to={"/Moviedetails/?id="+movies.id}>
                     {movies.title}</Link> : {movies.release_date}
                 </li>
-     });
+     });*/
     return (
      <div className="container">
          <div className="info_movies_search_page">
@@ -48,7 +36,7 @@ class Search extends Component {
 
             
             <div>
-                <ul>{movies}</ul>
+               {/*} <ul>{movies}</ul>{*/}
             </div>
         </div>
         

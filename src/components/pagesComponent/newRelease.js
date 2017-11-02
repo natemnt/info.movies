@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import Request from 'superagent';
 import _ from 'lodash';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as movieActions from '../../actions/movieActions'
 
 class Newrelease extends Component {
 
@@ -23,6 +26,7 @@ class Newrelease extends Component {
 
 
   render() {
+    //console.log(this.props.actions)
     var movies = _.map(this.state.movies,(movies, i) => {
       return  <div key={i} 
                       className="info_movie__article">
@@ -65,4 +69,16 @@ class Newrelease extends Component {
   }
 }
 
-export default Newrelease;
+/*redux function that maps state to props */
+function mapStateToProps(state, ownProps){
+  return{
+      nowPlaying: state.nowPlaying
+  }
+}
+
+function mapDispatchToProps(dispatch){
+  return{
+      actions: bindActionCreators(movieActions, dispatch)
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Newrelease);
